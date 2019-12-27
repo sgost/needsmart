@@ -17,3 +17,9 @@ You will also see any lint errors in the console.
 ### `npm run build`
 
 Builds the app folder for production to the `build` folder.<br>
+
+### File names to be renamed inorder to use boilerplate for respective application
+- README.md
+- package.json
+- index.html
+- manifest.json
