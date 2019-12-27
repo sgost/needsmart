@@ -1,0 +1,19 @@
+{
+  "short_name": "React Web",
+  "name": "React Web",
+  "display": "standalone",
+  "start_url": ".",
+  "theme_color": "#5860AF",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "folder_128.png",
+      "sizes": "64x64 32x32 24x24 16x16 192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "folder_512.png",
+      "sizes": "512x512"
+    }
+  ]
+}

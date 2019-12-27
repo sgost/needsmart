@@ -1,0 +1,12 @@
+export { default as MoreIcon } from '@ant-design/icons/lib/outline/MoreOutline';
+export { default as PlusIcon } from '@ant-design/icons/lib/outline/PlusOutline';
+export { default as HomeIcon } from '@ant-design/icons/lib/outline/HomeOutline';
+export { default as FilMarkdown } from '@ant-design/icons/lib/outline/FileMarkdownOutline';
+export { default as FileImage } from '@ant-design/icons/lib/outline/FileImageOutline';
+export { default as FilePdf } from '@ant-design/icons/lib/outline/FilePdfOutline';
+export { default as FileWord } from '@ant-design/icons/lib/outline/FileWordOutline';
+export { default as FileZip } from '@ant-design/icons/lib/outline/FileZipOutline';
+export { default as FileText } from '@ant-design/icons/lib/outline/FileTextOutline';
+export { default as FileExcel } from '@ant-design/icons/lib/outline/FileExcelOutline';
+export { default as FileUnknown } from '@ant-design/icons/lib/outline/FileUnknownOutline';
+export { default as UserIcon } from '@ant-design/icons/lib/outline/UserOutline';
