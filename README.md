@@ -1,5 +1,5 @@
-<h1>React Web Boilerplate</h1>
-<p>One App for all ideas</p>
+<h1>NeedsMart Web</h1>
+<p>Bring your shop online with NeedsMart</p>
 <br />
 
 ## Available Scripts
