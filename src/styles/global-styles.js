@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import * as palette from './variables';
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500,700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
   @-ms-viewport {
   width: device-width;
   }
@@ -90,7 +90,6 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-transition: color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
-  text-decoration: underline;
   }
   strong {
   font-weight: 600;
@@ -235,5 +234,21 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${palette.APP_BRAND_COLOR};
     color: ${palette.WHITE_COLOR}
     border-radius: none;
+  }
+
+  .addBtn {
+    border-color: ${palette.BUTTON_SEC_COLOR} !important;
+    background: ${palette.BUTTON_SEC_COLOR} !important;
+    border-radius: 4px !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    line-height: 16px !important;
+    text-transform: uppercase;
+    color: ${palette.WHITE_COLOR} !important;
+    &:hover, &:active {
+      color: ${palette.WHITE_COLOR} !important;
+      background: ${palette.BUTTON_SEC_COLOR} !important;
+      border-color: ${palette.BUTTON_SEC_COLOR} !important;
+    }
   }
 `;
