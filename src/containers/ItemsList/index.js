@@ -59,7 +59,7 @@ const ItemsList = ({ match }) => {
         <Col md={9} lg={9} xl={9} className="itemsList">
           {
             items && items.map(item =>
-              <Item data={item} />
+              <Item data={item} key={item.item.id} />
             )
           }
         </Col>

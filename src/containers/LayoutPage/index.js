@@ -4,11 +4,14 @@ import {
   Container,
 } from './styles';
 import { Context as OutletContext } from '../../utils/context/outlet';
+import { Context as UserContext } from '../../utils/context/user';
 
 const LayoutPage = ({ history }) => {
   return (
     <OutletContext>
-      <NavBar />
+      <UserContext>
+        <NavBar />
+      </UserContext>
     </OutletContext>
   );
 };

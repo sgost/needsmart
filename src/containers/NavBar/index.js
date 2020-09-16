@@ -20,6 +20,7 @@ import {
   MenuIcon
 } from "./styles";
 import { OutletContext } from '../../utils/context/outlet';
+import { UserContext } from '../../utils/context/user';
 
 const NavBar = () => {
   function EmptyState() {
@@ -32,6 +33,9 @@ const NavBar = () => {
 
   const outletDetails = useContext(OutletContext);
   console.log(outletDetails, 'outletDetails');
+
+  const { user } = useContext(UserContext);
+  console.log(user, 'user');
 
   return (
     <Router>

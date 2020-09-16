@@ -4,41 +4,72 @@ import logger from '../logger';
 
 const request = new Interceptor();
 
-export const getUserDetails = async success => {
+export const CreateUser = async (data, success, error) => {
+  console.log(data);
   try {
-    const response = await request.get(`${BASE_URL}users/profile`);
-    success(response.data.data);
+    const response = await request.post(`${BASE_URL}/${BASE_USER}`, data);
+    success(response);
+  } catch (err) {
+    console.log(err);
+    error(err);
+    logger(err);
+  }
+};
+
+export const newOTP = async (token, success) => {
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+  };
+  try {
+    const response = await request.get(`${BASE_URL}/${BASE_USER}/new_otp`, config);
+    success(response.data);
   } catch (err) {
     logger(err);
   }
 };
 
-export const signUpUser = async (user, existingErrorMessages, success, error) => {
-    try {
-      const response = await request.post(`${BASE_URL}${BASE_USER}/sign_up`, { user });
-      return success(response);
-    } catch (err) {
-      if (err && err.response && err.response.data && err.response.data.errors) {
-        const errorMessages = formatErrors(err.response.data.errors);
-        return error(errorMessages, existingErrorMessages);
-      }
-      return error();
-    }
+export const validateOTP = async (data, success, error) => {
+  console.log(data);
+  try {
+    const response = await request.post(`${BASE_URL}/${BASE_USER}/valid_otp`, data);
+    success(response);
+  } catch (err) {
+    console.log(err);
+    error(err);
+    logger(err);
+  }
+};
+
+export const updateUser = async (data, success, error) => {
+  console.log(data);
+  const config = {
+    headers: { Authorization: `Bearer ${localStorage.getItem('api_token')}` }
   };
-  
-  export const signInUser = async (user, existingErrorMessages, success, error) => {
-    try {
-      const response = await request.post(`${BASE_URL}${BASE_USER}/sign_in`, { user });
-      return success(response);
-    } catch (err) {
-      if (err && err.response && err.response.data && err.response.data.errors) {
-        const errorMessages = formatErrors(err.response.data.errors, existingErrorMessages);
-        return error(errorMessages);
-      }
-      return error();
-    }
+  try {
+    const response = await request.put(`${BASE_URL}/${BASE_USER}/update_user_details`, data, config);
+    success(response.data);
+  } catch (err) {
+    error(err);
+    logger(err);
+  }
+};
+
+export const getUserDetails = async success => {
+  const config = {
+    headers: { Authorization: `Bearer ${localStorage.getItem('api_token')}` }
   };
-  
+  try {
+    const response = await request.get(`${BASE_URL}/${BASE_USER}/profile`, config);
+    success(response.data);
+  } catch (err) {
+    console.log(err.response.status, 'api error');
+    if (err.response.status === 401) {
+      localStorage.removeItem('api_token');
+    }
+    logger(err);
+  }
+};
+
   const formatErrors = (errors, existingErrorMessages) => {
     let errorData = errors;
     let errorMessages = { ...existingErrorMessages };

@@ -23,9 +23,10 @@ export const APP_HEADER_BORDER_COLOR = '#EBEFF3';
 export const PRIMARY_TXT_COLOR = '#444444';
 export const SECONDARY_TXT_COLOR = '#333333';
 export const HEADER_TXT_COLOR = '#183247';
+export const INPUT_TEXT = '#263238';
 
 // button colors
-export const BUTTON_PRIMARY_COLOR = '#5860AF';
+export const BUTTON_PRIMARY_COLOR = '#4C2882';
 export const BUTTON_SEC_COLOR = '#46B588';
 
 // icon colors
