@@ -268,6 +268,9 @@ export const GlobalStyle = createGlobalStyle`
 
   .customDrawer .ant-drawer-content-wrapper {
     width: 412px !important;
+    @media only screen and (max-width: 769px) {
+      width: 100% !important;
+    }
     .ant-drawer-header {
       border-bottom: none;
     }

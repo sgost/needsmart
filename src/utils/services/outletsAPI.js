@@ -1,4 +1,3 @@
-import { message } from 'antd';
 import { BASE_URL, OUTLETID, OUTLETSURL } from '../helper';
 import logger from '../logger';
 import Interceptor from './interceptor';

@@ -18,7 +18,6 @@ const NumberForm = props => {
     CreateUser(
       formObj,
       success => {
-        localStorage.setItem('api_token', success.data.auth_token);
         setActive(false);
         props.numFormSuccess(formObj, success.data.auth_token);
       },

@@ -23,7 +23,7 @@ const ItemsList = ({ match }) => {
       getItems(match.params.id);
       setCurrentKey(match.params.id);
     }
-  }, [match.params.id]);
+  }, [match]);
 
   const getItems = id => {
     let subCatId;
@@ -39,11 +39,20 @@ const ItemsList = ({ match }) => {
     });
   };
 
+  const[menuMode, setMenuMode] = useState('vertical');
+  useEffect(() => {
+    if(typeof window !== undefined) {
+      if(window.innerWidth < 769) {
+        setMenuMode('horizontal');
+      }
+    }
+  }, []);
+
   return (
     <Container>
       <Row className="itemsListSection">
-        <Col md={4} lg={4} xl={4}>
-          <Menu mode="vertical" selectedKeys={[currentKey]}>
+        <Col xs={24} sm={24} md={4} lg={4} xl={4}>
+          <Menu mode={menuMode} selectedKeys={[currentKey]}>
             <Menu.Item key="all">
               <Link to="/items/all">All</Link> 
             </Menu.Item>
@@ -56,7 +65,7 @@ const ItemsList = ({ match }) => {
             }
           </Menu>
         </Col>
-        <Col md={9} lg={9} xl={9} className="itemsList">
+        <Col xs={24} sm={24} md={9} lg={9} xl={9} className="itemsList">
           {
             items && items.map(item =>
               <Item data={item} key={item.item.id} />

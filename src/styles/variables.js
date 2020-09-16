@@ -18,6 +18,7 @@ export const APP_HEADER_BACKGROUND_COLOR = '#FFF';
 
 // border colors
 export const APP_HEADER_BORDER_COLOR = '#EBEFF3';
+export const BORDER_COLOR = '#CCCCCC';
 
 // text colors
 export const PRIMARY_TXT_COLOR = '#444444';
