@@ -20,6 +20,10 @@ class Interceptor {
     return axios.patch(url, data, { ...baseOptions, ...options });
   }
 
+  put(url, data, options) {
+    return axios.put(url, data, { ...baseOptions, ...options });
+  }
+
   delete(url) {
     return axios.delete(url, baseOptions);
   }

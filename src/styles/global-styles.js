@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import * as palette from './variables';
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500,700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
   @-ms-viewport {
   width: device-width;
   }
@@ -90,7 +90,6 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-transition: color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
-  text-decoration: underline;
   }
   strong {
   font-weight: 600;
@@ -209,23 +208,37 @@ export const GlobalStyle = createGlobalStyle`
     border: initial !important;
   }
   .ant-btn {
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 8px !important;
+    font-weight: normal !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
     &.active, &:hover {
-      color: #5860AF !important;
-      border-color: #5860AF !important;
+      color: ${palette.BUTTON_PRIMARY_COLOR} !important;
+      border-color: ${palette.BUTTON_PRIMARY_COLOR} !important;
     }
   }
   .ant-btn-primary {
-    background-color: #5860AF !important;
-    border-color: #5860AF !important;
+    height: 48px !important;
+    background-color: ${palette.BUTTON_PRIMARY_COLOR} !important;
+    border-color: ${palette.BUTTON_PRIMARY_COLOR} !important;
     &.active, &:hover {
-      color: #fff !important;
+      color: ${palette.WHITE_COLOR} !important;
     }
   }
   .ant-input {
-    height: 36px !important;
-    &:focus, &:hover {
-      border: 1px solid #5860AF !important;
-      box-shadow: initial !important;
+    height: 48px !important;
+    border-radius: 8px !important;
+    border: transparent !important;
+    font-weight: normal !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    color: ${palette.INPUT_TEXT} !important;
+    background: ${palette.WHITE_COLOR};
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    &:focus, &:hover, &:active {
+      border: none !important;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     }
   }
   .ant-modal-confirm-body-wrapper {
@@ -235,5 +248,66 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${palette.APP_BRAND_COLOR};
     color: ${palette.WHITE_COLOR}
     border-radius: none;
+  }
+
+  .addBtn {
+    border-color: ${palette.BUTTON_SEC_COLOR} !important;
+    background: ${palette.BUTTON_SEC_COLOR} !important;
+    border-radius: 4px !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    line-height: 16px !important;
+    text-transform: uppercase;
+    color: ${palette.WHITE_COLOR} !important;
+    &:hover, &:active {
+      color: ${palette.WHITE_COLOR} !important;
+      background: ${palette.BUTTON_SEC_COLOR} !important;
+      border-color: ${palette.BUTTON_SEC_COLOR} !important;
+    }
+  }
+
+  .customDrawer .ant-drawer-content-wrapper {
+    width: 412px !important;
+    .ant-drawer-header {
+      border-bottom: none;
+    }
+    .ant-drawer-title {
+      margin-left: 22px;
+      font-size: 20px;
+      line-height: 30px;
+      color: ${palette.PRIMARY_TXT_COLOR};
+    }
+    .ant-drawer-close {
+      left: 0;
+      top: 4px;
+      color: ${palette.MD_GREY};
+      font-size: 16px;
+    }
+  }
+
+  .inputLabel {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: ${palette.DOVE_GRAY};
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  .otpInput {
+    width: 36px !important;
+    border: none;
+    border-bottom: 1px solid ${palette.BUTTON_PRIMARY_COLOR};
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    color: ${palette.INPUT_TEXT};
+    margin: 0px 8px;
+  }
+  .otpInputFocus {
+    border: none;
+    outline: none !important;
+    border-bottom: 1px solid ${palette.BUTTON_PRIMARY_COLOR};
   }
 `;

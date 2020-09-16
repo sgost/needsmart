@@ -6,7 +6,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={LayoutPage} />
+        <Route path="/" component={LayoutPage} />
       </Switch>
     </BrowserRouter>
   );
