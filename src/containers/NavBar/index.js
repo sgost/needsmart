@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import HomePage from "../../containers/HomePage";
 import ItemsList from "../../containers/ItemsList";
-import Logo from "../../images/logo.png";
 import Search from "../../images/search.svg";
 import User from "../../images/user-outlined.svg";
 import Cart from "../../images/cart.svg";

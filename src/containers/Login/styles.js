@@ -57,14 +57,15 @@ export const TextContainer = styled.div`
 `;
 
 export const ResendLink = styled.div`
-  a {
+  padding-bottom: 10px;
+  span {
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
     text-align: center;
     color: ${palette.BUTTON_PRIMARY_COLOR};
     display: block;
-    padding-bottom: 10px;
+    cursor: pointer;
   }
 `;
 

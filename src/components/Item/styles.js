@@ -6,6 +6,9 @@ export const ItemContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 25px;
+  @media only screen and (max-width: 769px) {
+    padding: 25px 5px;
+  }
 `;
 
 export const ItemSection = styled.div`

@@ -75,7 +75,7 @@ const OTPForm = props => {
         />
       </Form.Item>
       <ResendLink>
-        <a onClick={resendOtp}>Resend OTP</a>
+        <span onClick={resendOtp}>Resend OTP</span>
       </ResendLink>
       <Form.Item className="submitFormItem">
         <Button type="primary" htmlType="submit" disabled={disabled || active}>

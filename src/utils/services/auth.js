@@ -70,12 +70,12 @@ export const getUserDetails = async success => {
   }
 };
 
-  const formatErrors = (errors, existingErrorMessages) => {
-    let errorData = errors;
-    let errorMessages = { ...existingErrorMessages };
-    Object.keys(errorData).forEach(key => {
-      errorMessages[key] = errorData[key];
-    });
-    return errorMessages;
-  };
+  // const formatErrors = (errors, existingErrorMessages) => {
+  //   let errorData = errors;
+  //   let errorMessages = { ...existingErrorMessages };
+  //   Object.keys(errorData).forEach(key => {
+  //     errorMessages[key] = errorData[key];
+  //   });
+  //   return errorMessages;
+  // };
   
