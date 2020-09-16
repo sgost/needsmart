@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@uppy/core": "^1.6.0",
-    "@uppy/file-input": "^1.4.0",
-    "@uppy/react": "^1.4.0",
-    "@uppy/xhr-upload": "^1.4.0",
     "antd": "^4.6.3",
     "axios": "^0.19.0",
     "react": "^16.8.5",
@@ -14,7 +10,6 @@
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.5",
     "react-otp-input": "^2.0.2",
-    "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.0",
     "styled-components": "^4.2.0"
   },
@@ -83,7 +78,6 @@
     "resolve": "1.10.0",
     "rimraf": "^3.0.0",
     "sass-loader": "7.1.0",
-    "semver": "6.0.0",
     "source-map-explorer": "^2.0.1",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.3",
