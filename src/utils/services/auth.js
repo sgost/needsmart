@@ -5,12 +5,10 @@ import logger from '../logger';
 const request = new Interceptor();
 
 export const CreateUser = async (data, success, error) => {
-  console.log(data);
   try {
     const response = await request.post(`${BASE_URL}/${BASE_USER}`, data);
     success(response);
   } catch (err) {
-    console.log(err);
     error(err);
     logger(err);
   }
@@ -29,19 +27,16 @@ export const newOTP = async (token, success) => {
 };
 
 export const validateOTP = async (data, success, error) => {
-  console.log(data);
   try {
     const response = await request.post(`${BASE_URL}/${BASE_USER}/valid_otp`, data);
     success(response);
   } catch (err) {
-    console.log(err);
     error(err);
     logger(err);
   }
 };
 
 export const updateUser = async (data, success, error) => {
-  console.log(data);
   const config = {
     headers: { Authorization: `Bearer ${localStorage.getItem('api_token')}` }
   };
@@ -62,7 +57,6 @@ export const getUserDetails = async success => {
     const response = await request.get(`${BASE_URL}/${BASE_USER}/profile`, config);
     success(response.data);
   } catch (err) {
-    console.log(err.response.status, 'api error');
     if (err.response.status === 401) {
       localStorage.removeItem('api_token');
     }

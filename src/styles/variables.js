@@ -9,6 +9,7 @@ export const MD_GREY = '#555555';
 export const DOVE_GRAY = '#666666';
 export const GREY = '#888888';
 export const LIGHT_GREY = '#EEEEEE';
+export const ORANGE = '#FF5722';
 
 // brand colors
 export const APP_BRAND_COLOR = '#5860AF';

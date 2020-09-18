@@ -6,7 +6,8 @@ import {
   NavLink
 } from "react-router-dom";
 import HomePage from "../../containers/HomePage";
-import ItemsList from "../../containers/ItemsList";
+import ItemsPage from "../../containers/ItemsPage";
+import { OutletContext } from '../../utils/context/outlet';
 import Search from "../../images/search.svg";
 import User from "../../images/user-outlined.svg";
 import Cart from "../../images/cart.svg";
@@ -18,8 +19,6 @@ import {
   MenuItem,
   MenuIcon
 } from "./styles";
-import { OutletContext } from '../../utils/context/outlet';
-import { UserContext } from '../../utils/context/user';
 
 const NavBar = () => {
   function EmptyState() {
@@ -31,10 +30,6 @@ const NavBar = () => {
   }
 
   const outletDetails = useContext(OutletContext);
-  console.log(outletDetails, 'outletDetails');
-
-  const { user } = useContext(UserContext);
-  console.log(user, 'user');
 
   return (
     <Router>
@@ -97,7 +92,7 @@ const NavBar = () => {
           <EmptyState />
         </Route>
         <Route path="/:name/:id">
-          <ItemsList />
+          <ItemsPage />
         </Route>
       </Switch>
     </Router>

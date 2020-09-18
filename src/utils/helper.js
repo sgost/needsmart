@@ -8,3 +8,6 @@ export const OUTLETSURL = 'outlets';
 
 //subcategories
 export const SUBCATEGORIESURL = 'sub_categories';
+
+//cart
+export const CARTURL = 'carts';

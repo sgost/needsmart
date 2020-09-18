@@ -3,6 +3,7 @@ import NumberForm from "./NumberForm";
 import OTPForm from "./OTPForm";
 import NameForm from "./NameForm";
 import { newOTP } from "../../utils/services/auth";
+import { UserContext } from '../../utils/context/user';
 import Illustration from '../../images/login-illustration.png';
 import EditIcon from '../../images/edit-icon.svg';
 import  {
@@ -12,7 +13,6 @@ import  {
   TextContainer,
   EditNumber
 } from './styles';
-import { UserContext } from '../../utils/context/user';
 
 const LoginPage = props => {
 
@@ -46,7 +46,7 @@ const LoginPage = props => {
       setShowNameForm(true);
     } else {
       props.closeDrawer();
-      getDetails();
+      getDetails(data);
     }
   };
 

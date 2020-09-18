@@ -21,7 +21,7 @@ const NameForm = props => {
     updateUser(
       nameObj,
       success => {
-        getDetails();
+        getDetails(success.data);
         props.numNameSuccess();
         setActive(false);
       },
