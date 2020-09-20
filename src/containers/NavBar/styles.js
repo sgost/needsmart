@@ -63,7 +63,7 @@ export const MenuItem = styled.li`
   @media only screen and (max-width: 992px) {
     margin: 0px 6px;
   }
-  a {
+  .link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,6 +74,7 @@ export const MenuItem = styled.li`
     color: ${palette.PRIMARY_TXT_COLOR};
     padding: 14px 18px;
     text-decoration: unset;
+    cursor: pointer;
     &:hover, &:focus, &:active {
       color: ${palette.PRIMARY_TXT_COLOR};
     }
@@ -87,4 +88,15 @@ export const MenuIcon = styled.span`
   width: 24px;
   height: 24px;
   margin-right: 8px;
+  position: relative;
+`;
+
+export const CartNotify = styled.span`
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background: #EE5253;
+  display: inline-block;
+  position: absolute;
+  right: 0;
 `;

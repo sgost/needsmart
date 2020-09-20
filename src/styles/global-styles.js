@@ -132,16 +132,9 @@ export const GlobalStyle = createGlobalStyle`
   .ant-modal-mask {
     background-color: rgba(0, 0, 0, 0.70) !important;
   }
-  .ant-modal-mask, .ant-modal-wrap {
-    left: 65px !important;
-  }
-  .ant-modal {
-    width: initial !important;
-    max-width: 500px;
-    top: 90px !important;
-  }
+
   .ant-modal-content {
-    border-radius: 0px !important;
+    border-radius: 8px !important;
   }
   .ant-modal-body {
     padding: 0px !important;
@@ -312,5 +305,29 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
     outline: none !important;
     border-bottom: 1px solid ${palette.BUTTON_PRIMARY_COLOR};
+  }
+
+  .unitModal {
+    .ant-modal-content {
+      max-width: 365px;
+      margin: 0 auto;
+    }
+    .ant-modal-header {
+      padding: 24px 24px 16px;
+    }
+    .ant-modal-title {
+      text-align: center;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: ${palette.SECONDARY_TXT_COLOR};
+      span {
+        display: block;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+        color: ${palette.DOVE_GRAY};
+      }
+    }
   }
 `;

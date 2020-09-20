@@ -1,11 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Row, Col, Menu } from "antd";
 import ItemsList from '../../containers/ItemsList';
-import Cart from '../../containers/Cart';
+import CartItemsList from "../../components/CartItemsList";
 import { OutletContext } from '../../utils/context/outlet';
+import { CartSummaryContext } from '../../utils/context/cartSummary';
 import {
-  Container
+  Container,
+  CartContainer,
+  Title
 } from './styles';
 
 const ItemsPage = ({ match }) => {
@@ -30,6 +33,8 @@ const ItemsPage = ({ match }) => {
     }
   }, []);
 
+  const { cartSummary } = useContext(CartSummaryContext);
+
   return (
     <Container>
       <Row className="itemsListSection">
@@ -47,11 +52,19 @@ const ItemsPage = ({ match }) => {
             }
           </Menu>
         </Col>
-        <Col xs={24} sm={24} md={9} lg={9} xl={9} className="itemsList">
+        <Col xs={24} sm={24} md={10} lg={9} xl={9} className="itemsList">
           <ItemsList subCatId={match.params.id} />
         </Col>
-        <Col xs={24} sm={24} md={11} lg={11} xl={11} className="cartList">
-          <Cart />
+        <Col xs={24} sm={24} md={10} lg={11} xl={11} className="cartList">
+          <CartContainer>
+            {
+              Object.keys(cartSummary).length !== 0 &&
+              <Fragment>
+                <Title>Cart</Title>
+                <CartItemsList />
+              </Fragment>
+            }
+          </CartContainer>
         </Col>
       </Row>
     </Container>

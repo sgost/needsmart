@@ -93,3 +93,12 @@ export const ItemsAction = styled.div`
     cursor: pointer;
   }
 `;
+
+export const AllUnits = styled.div`
+  cursor: pointer;
+  .anticon {
+    font-size: 12px;
+    color: ${palette.BUTTON_SEC_COLOR};
+    margin-left: 5px;
+  }
+`;

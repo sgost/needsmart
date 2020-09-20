@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react';
-import { Button, Drawer, message } from 'antd';
+import { Button, Drawer, message, Modal } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 import LoginPage from '../../containers/Login';
+import UnitsList from '../../components/UnitsList';
 import { addItems, removeItem } from "../../utils/services/cartAPI";
 import { CartSummaryContext } from '../../utils/context/cartSummary';
 import {
@@ -13,7 +15,8 @@ import {
   ItemUnit,
   ItemPrice,
   AddItem,
-  ItemsAction
+  ItemsAction,
+  AllUnits
 } from './styles';
 
 const Item = props => {
@@ -29,10 +32,15 @@ const Item = props => {
     } else {
       let cartItemObj = cartSummary.cart_items.find((itmInner) => itmInner.id === productItem.item.id);
       if(cartItemObj) {
+        if(productItem.all_units && productItem.all_units.length > 0) {
+          let cartItemUnit = productItem.all_units.find((itmInner) => itmInner.item.id === cartItemObj.id);
+          if(cartItemUnit) {
+            cartItemUnit.item = cartItemObj;
+          }
+        }
         productItem.item = cartItemObj;
         setData(prevObj => ({...prevObj, ...productItem}));
-      } else
-      if(cartItemObj === undefined) {
+      } else if(cartItemObj === undefined) {
         productItem = props.data;
         productItem.item.quantity = 0;
         setData(prevObj => ({...prevObj, ...productItem}));
@@ -83,6 +91,25 @@ const Item = props => {
     setShowLogin(false);
   };
 
+  //all units modal
+
+  const mainItem = props.data;
+
+  const[modalVisible, setModalVisible] = useState(false);
+
+  const allUnits = () => {
+    setModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setModalVisible(false);
+  };
+
+  const changeUnit = unit => {
+    setModalVisible(false);
+    setData(prevObj => ({...prevObj, ...unit}));
+  };
+
   return (
     <Fragment>
       {
@@ -96,7 +123,13 @@ const Item = props => {
               <ItemName>{data.item.name}</ItemName>
               <ItemDesc>{data.item.brand}</ItemDesc>
               <ItemUnit>
-                {data.item.size}{data.item.unit}
+                {
+                  data.all_units ?
+                  <AllUnits onClick={allUnits}>
+                    <span>{data.item.size}{data.item.unit}</span><DownOutlined />
+                  </AllUnits>
+                  :<span>{data.item.size}{data.item.unit}</span>
+                }
               </ItemUnit>
               <ItemPrice>
                 Rs. <span className={data.sp && 'lineThrough'}>{data.mrp}</span> {data.sp && <span className="sprice">{data.sp}</span>}
@@ -122,6 +155,16 @@ const Item = props => {
               (data.status === 'not_available' || (data.sku === 0 && !data.continue_shop_when_out_of_stock)) && <span className="notAvail">Out of Stock </span>
             }
           </AddItem>
+          <Modal
+            title={<Fragment><span>Available Quantities for</span>{mainItem.item.name}</Fragment>}
+            visible={modalVisible}
+            onCancel={handleCancel}
+            footer={null}
+            closable={false}
+            className="unitModal"
+          >
+            <UnitsList mainItem={mainItem} changeUnit={changeUnit} />
+          </Modal>
         </ItemContainer>
       }
       <Drawer

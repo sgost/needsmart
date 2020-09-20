@@ -22,15 +22,12 @@ export const addItems = async (id, success, error) => {
 };
 
 export const removeItem = async (id, success, error) => {
-  const config = {
-    headers: { Authorization: `Bearer ${localStorage.getItem('api_token')}` }
-  };
   const data = {
     outlet_id: OUTLETID,
     item_id: id
   };
   try {
-    const response = await request.delete(`${BASE_URL}/${CARTURL}/remove_item`, { data: data, config });
+    const response = await request.delete(`${BASE_URL}/${CARTURL}/remove_item`, { data: data, headers: { Authorization: `Bearer ${localStorage.getItem('api_token')}` } });
     success(response);
   } catch (err) {
     error(err);
