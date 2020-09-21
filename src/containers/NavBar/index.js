@@ -1,25 +1,28 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   NavLink
 } from "react-router-dom";
+import { Drawer } from 'antd';
 import HomePage from "../../containers/HomePage";
-import ItemsList from "../../containers/ItemsList";
+import ItemsPage from "../../containers/ItemsPage";
+import Cart from "../../containers/Cart";
+import { OutletContext } from '../../utils/context/outlet';
+import { CartSummaryContext } from '../../utils/context/cartSummary';
 import Search from "../../images/search.svg";
 import User from "../../images/user-outlined.svg";
-import Cart from "../../images/cart.svg";
+import CartIcon from "../../images/cart.svg";
 import {
   Header,
   LogoContainer,
   HeaderText,
   MenuContainer,
   MenuItem,
-  MenuIcon
+  MenuIcon,
+  CartNotify
 } from "./styles";
-import { OutletContext } from '../../utils/context/outlet';
-import { UserContext } from '../../utils/context/user';
 
 const NavBar = () => {
   function EmptyState() {
@@ -31,10 +34,19 @@ const NavBar = () => {
   }
 
   const outletDetails = useContext(OutletContext);
-  console.log(outletDetails, 'outletDetails');
 
-  const { user } = useContext(UserContext);
-  console.log(user, 'user');
+  //cart
+  const [showCart, setShowCart] = useState(false);
+
+  const { cartSummary } = useContext(CartSummaryContext);
+
+  const cartClick = () => {
+    setShowCart(true);
+  };
+
+  const onClose = () => {
+    setShowCart(false);
+  };
 
   return (
     <Router>
@@ -57,7 +69,7 @@ const NavBar = () => {
         </LogoContainer>
         <MenuContainer>
           <MenuItem>
-            <NavLink to="/search">
+            <NavLink className="link" to="/search">
               <MenuIcon>
                 <img src={Search} alt="Search" />
               </MenuIcon>
@@ -65,7 +77,7 @@ const NavBar = () => {
             </NavLink>
           </MenuItem>
           <MenuItem>
-            <NavLink to="/account">
+            <NavLink className="link" to="/account">
               <MenuIcon>
                 <img src={User} alt="Account" />
               </MenuIcon>
@@ -73,12 +85,15 @@ const NavBar = () => {
             </NavLink>
           </MenuItem>
           <MenuItem>
-            <NavLink to="/cart">
+            <span className="link" onClick={cartClick}>
               <MenuIcon>
-                <img src={Cart} alt="Cart" />
+                <img src={CartIcon} alt="Cart" />
+                {
+                  Object.keys(cartSummary).length !== 0 && cartSummary.cart_items.length && <CartNotify />
+                }
               </MenuIcon>
               <span>Cart</span>
-            </NavLink>
+            </span>
           </MenuItem>
         </MenuContainer>
       </Header>
@@ -97,9 +112,20 @@ const NavBar = () => {
           <EmptyState />
         </Route>
         <Route path="/:name/:id">
-          <ItemsList />
+          <ItemsPage />
         </Route>
       </Switch>
+      <Drawer
+        title="Cart"
+        placement="right"
+        closable={true}
+        onClose={onClose}
+        visible={showCart}
+        className="customDrawer"
+        destroyOnClose={true}
+      >
+        <Cart outletDetails={outletDetails} cartSummary={cartSummary} onClose={onClose} />
+      </Drawer>
     </Router>
   );
 }

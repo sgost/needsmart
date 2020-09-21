@@ -8,7 +8,6 @@ const Context = ({ children }) => {
   
   useEffect(() => {
     getSingleOutlet(res => {
-      console.log(res);
       setOutlet(res.data);
     });
   }, []);

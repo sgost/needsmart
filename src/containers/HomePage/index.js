@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
+import { OutletContext } from '../../utils/context/outlet';
 import {
   Container,
 } from './styles';
-import { OutletContext } from '../../utils/context/outlet';
 
 const HomePage = () => {
 
   const subCategories = useContext(OutletContext);
-  console.log(subCategories, 'subCategories');
 
   return (
     <Container>

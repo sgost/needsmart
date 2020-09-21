@@ -62,5 +62,43 @@ export const ItemPrice = styled.div`
 `;
 
 export const AddItem = styled.div`
+  display: flex;
+  align-items: ${props => props.status === 'not_available' ? 'flex-end' : 'flex-start'};
+  .notAvail {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+    color: ${palette.ORANGE};
+  }
+`;
 
+export const ItemsAction = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  .remove, .add, .quantity {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: ${palette.BUTTON_SEC_COLOR};
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+  }
+  .remove, .add {
+    border: 1px solid ${palette.BUTTON_SEC_COLOR};
+    border-radius: 3px;
+    cursor: pointer;
+  }
+`;
+
+export const AllUnits = styled.div`
+  cursor: pointer;
+  .anticon {
+    font-size: 12px;
+    color: ${palette.BUTTON_SEC_COLOR};
+    margin-left: 5px;
+  }
 `;

@@ -24,8 +24,8 @@ class Interceptor {
     return axios.put(url, data, { ...baseOptions, ...options });
   }
 
-  delete(url) {
-    return axios.delete(url, baseOptions);
+  delete(url, options) {
+    return axios.delete(url, { ...baseOptions, ...options });
   }
 }
 
