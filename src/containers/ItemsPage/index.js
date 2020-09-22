@@ -61,7 +61,7 @@ const ItemsPage = ({ match }) => {
               Object.keys(cartSummary).length !== 0 &&
               <Fragment>
                 <Title>Cart</Title>
-                <CartItemsList />
+                <CartItemsList showCheckout={true} />
               </Fragment>
             }
           </CartContainer>

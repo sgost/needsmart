@@ -16,7 +16,7 @@ import {
   CartDetails
 } from './styles';
 
-const CartItemsList = ({ outlet, onClose }) => {
+const CartItemsList = ({ outlet, onClose, showCheckout }) => {
 
   const { cartSummary, getDetails } = useContext(CartSummaryContext);
 
@@ -46,6 +46,12 @@ const CartItemsList = ({ outlet, onClose }) => {
         console.log('error');
       }
     );
+  };
+
+  const closeDrawer = () => {
+    if(outlet) {
+      onClose();
+    }
   };
 
   return (
@@ -92,9 +98,14 @@ const CartItemsList = ({ outlet, onClose }) => {
         <span>Total Price</span>
         <span>Rs. {cartSummary.total_price}</span>
       </TotalPrice>
-      <CheckoutBtn>
-        <Button type="primary">Checkout</Button>
-      </CheckoutBtn>
+      {
+        showCheckout &&
+        <CheckoutBtn>
+          <Button type="primary">
+            <NavLink to="/checkout" onClick={closeDrawer}>Checkout</NavLink>
+          </Button>
+        </CheckoutBtn>
+      }
     </Fragment>
   );
 };

@@ -11,3 +11,12 @@ export const SUBCATEGORIESURL = 'sub_categories';
 
 //cart
 export const CARTURL = 'carts';
+
+//address
+export const ADDRESSURL = 'addresses';
+
+//transactions
+export const TRANSACTIONURL = 'order_transactions';
+
+//orders
+export const ORDERSURL = 'orders';

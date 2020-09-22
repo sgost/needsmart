@@ -9,6 +9,7 @@ import { Drawer } from 'antd';
 import HomePage from "../../containers/HomePage";
 import ItemsPage from "../../containers/ItemsPage";
 import Cart from "../../containers/Cart";
+import PlacingOrder from '../../containers/PlacingOrder';
 import { OutletContext } from '../../utils/context/outlet';
 import { CartSummaryContext } from '../../utils/context/cartSummary';
 import Search from "../../images/search.svg";
@@ -113,6 +114,9 @@ const NavBar = () => {
         </Route>
         <Route path="/:name/:id">
           <ItemsPage />
+        </Route>
+        <Route path="/checkout">
+          <PlacingOrder />
         </Route>
       </Switch>
       <Drawer
