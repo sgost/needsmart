@@ -136,23 +136,28 @@ const Item = props => {
               </ItemPrice>
             </ItemDetails>
           </ItemSection>
-          <AddItem status={data.status}>
+          <AddItem style={{alignItems: (data.status === 'not_available' || (data.status === 'available' && data.sku <= 0 && !data.continue_shop_when_out_of_stock)) ? 'flex-end' : 'flex-start'}}>
             {
-              (data.status === 'available' || (data.sku === 0 && data.continue_shop_when_out_of_stock)) &&
+              data.status === 'available' &&
               <Fragment>
                 {
-                  data.item.quantity > 0 && Object.keys(cartSummary).length !== 0 ?
-                  <ItemsAction>
-                    <span className="remove" onClick={removeFromCart}>-</span>
-                    <span className="quantity">{data.item.quantity}</span>
-                    <span className="add" onClick={addItem}>+</span>
-                  </ItemsAction>
-                  : <Button className="addBtn" onClick={addItem}>Add</Button>
+                  (data.sku > 0 || (data.sku <= 0 && data.continue_shop_when_out_of_stock)) &&
+                  <Fragment>
+                    {
+                      data.item.quantity > 0 && Object.keys(cartSummary).length !== 0 ?
+                      <ItemsAction>
+                        <span className="remove" onClick={removeFromCart}>-</span>
+                        <span className="quantity">{data.item.quantity}</span>
+                        <span className="add" onClick={addItem}>+</span>
+                      </ItemsAction>
+                      : <Button className="addBtn" onClick={addItem}>Add</Button>
+                    }
+                  </Fragment>
                 }
               </Fragment>
             }
             {
-              (data.status === 'not_available' || (data.sku === 0 && !data.continue_shop_when_out_of_stock)) && <span className="notAvail">Out of Stock </span>
+              (data.status === 'not_available' || (data.status === 'available' && data.sku <= 0 && !data.continue_shop_when_out_of_stock)) && <span className="notAvail">Out of Stock </span>
             }
           </AddItem>
           <Modal

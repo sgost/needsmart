@@ -63,7 +63,6 @@ export const ItemPrice = styled.div`
 
 export const AddItem = styled.div`
   display: flex;
-  align-items: ${props => props.status === 'not_available' ? 'flex-end' : 'flex-start'};
   .notAvail {
     font-weight: normal;
     font-size: 14px;
