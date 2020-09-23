@@ -49,13 +49,13 @@ export const AddButton = styled.div`
     background: ${palette.WHITE_COLOR};
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25) !important;
     border-radius: 8px !important;
-    width: 412px;
     height: 56px !important;
     font-weight: 500 !important;
     font-size: 16px !important;
     line-height: 19px !important;
     color: ${palette.BUTTON_PRIMARY_COLOR} !important;
     border-color: transparent !important;
+    padding-right: 30%;
     &:hover, &:active, &:focus {
       border: 1px solid transparent !important;
     }

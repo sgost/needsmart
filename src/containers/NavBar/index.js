@@ -11,6 +11,7 @@ import ItemsPage from "../../containers/ItemsPage";
 import Cart from "../../containers/Cart";
 import PlacingOrder from '../../containers/PlacingOrder';
 import SearchPage from '../../containers/SearchPage';
+import OrdersPage from '../../containers/OrdersPage';
 import { OutletContext } from '../../utils/context/outlet';
 import { CartSummaryContext } from '../../utils/context/cartSummary';
 import Search from "../../images/search.svg";
@@ -117,7 +118,7 @@ const NavBar = () => {
           <SearchPage />
         </Route>
         <Route path="/orders">
-          <EmptyState />
+          <OrdersPage />
         </Route>
         <Route path="/account">
           <EmptyState />
