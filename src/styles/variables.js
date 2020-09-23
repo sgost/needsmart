@@ -15,6 +15,7 @@ export const ML_GREY = '#999999';
 export const GRAPE = '#48464A';
 export const DARK_GRAY = '#AAAAAA';
 export const WHITE_SMOKE = '#F4F4F4';
+export const SILVER = '#777777';
 
 // brand colors
 export const APP_BRAND_COLOR = '#5860AF';

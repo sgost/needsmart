@@ -6,7 +6,7 @@ import {
   Container
 } from './styles';
 
-const ItemsPage = ({ subCatId }) => {
+const ItemsList = ({ subCatId }) => {
 
   const[items, setItems] = useState([]);
 
@@ -39,4 +39,4 @@ const ItemsPage = ({ subCatId }) => {
   );
 };
 
-export default withRouter(ItemsPage);
+export default withRouter(ItemsList);

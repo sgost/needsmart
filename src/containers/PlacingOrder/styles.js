@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import * as palette from '../../styles/variables';
 
 export const Container = styled.div`
+  height: calc(100% - 84px);
   .rowContainer {
     max-width: 1250px;
     margin: 0 auto;
