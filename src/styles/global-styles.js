@@ -125,10 +125,6 @@ export const GlobalStyle = createGlobalStyle`
   line-height: 1.5;
   }
   
-  .ant-message-notice {
-    text-align: right;
-  }
-
   .ant-modal-mask {
     background-color: rgba(0, 0, 0, 0.70) !important;
   }

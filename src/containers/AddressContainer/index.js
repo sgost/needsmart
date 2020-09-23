@@ -32,7 +32,6 @@ const AddressContainer = props => {
   const[value, setValue] = useState('new');
 
   const onChange = e => {
-    console.log('radio checked', e.target.value);
     if(e.target.value !== 'new') {
       setShowForm(false);
     }

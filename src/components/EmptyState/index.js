@@ -12,6 +12,12 @@ const EmptyState = props => {
 
   const content = props;
 
+  const close = () => {
+    if(content.onClose) {
+      content.onClose();
+    }
+  };
+
   return (
     <Container>
       <ContentSection>
@@ -23,7 +29,7 @@ const EmptyState = props => {
           <p>{content.description}</p>
         </Content>
         <Button type="primary">
-          <NavLink to={content.linkTo} onClick={() => content.onClose()}>
+          <NavLink to={content.linkTo} onClick={close}>
             {content.btnName}
           </NavLink>
         </Button>

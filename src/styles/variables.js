@@ -13,6 +13,8 @@ export const ORANGE = '#FF5722';
 export const ALICE_BLUE = '#F5FAFF';
 export const ML_GREY = '#999999';
 export const GRAPE = '#48464A';
+export const DARK_GRAY = '#AAAAAA';
+export const WHITE_SMOKE = '#F4F4F4';
 
 // brand colors
 export const APP_BRAND_COLOR = '#5860AF';

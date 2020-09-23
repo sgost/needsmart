@@ -41,7 +41,7 @@ export const SlotContainer = styled.div`
       line-height: 47px;
       color: ${palette.PRIMARY_TXT_COLOR};
       border-radius: 8px !important;
-      border: 1px solid #AAAAAA;
+      border: 1px solid ${palette.DARK_GRAY};
       border-top-width: 1px;
       border-left-width: 1px;
       text-align: center;
@@ -50,7 +50,7 @@ export const SlotContainer = styled.div`
       }
     }
     .ant-radio-button-wrapper:first-child {
-      border-left: 1px solid #AAAAAA;
+      border-left: 1px solid ${palette.DARK_GRAY};
     }
     .ant-radio-button-wrapper:not(:first-child)::before {
       display: none;

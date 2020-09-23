@@ -35,3 +35,12 @@ export const getOutletItems = async (subCategoryId, success) => {
     logger(err);
   }
 };
+
+export const searchItems = async (query, success, error) => {
+  try {
+    const response = await request.get(`${BASE_URL}/${OUTLETSURL}/${OUTLETID}/search?query=`+query);
+    success(response);
+  } catch (err) {
+    logger(err);
+  }
+};

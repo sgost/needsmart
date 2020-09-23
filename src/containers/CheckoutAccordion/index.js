@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { useHistory } from "react-router-dom";
-import { Collapse } from 'antd';
+import { Collapse, message } from 'antd';
 import moment from 'moment';
 import AddressContainer from '../../containers/AddressContainer';
 import SlotSelection from '../../containers/SlotSelection';
@@ -12,7 +12,7 @@ import {
   SlotDetails
 } from './styles';
 
-const CheckoutAccordion = ({ cartSummary, user }) => {
+const CheckoutAccordion = ({ cartSummary, updateCart, user }) => {
 
   const history = useHistory();
 
@@ -84,12 +84,12 @@ const CheckoutAccordion = ({ cartSummary, user }) => {
 
   //payment options
   const getPaymentMode = data => {
-    console.log(data, 'pay option');
     setPaymentOption(data);
     transaction(data);
   };
 
   const transaction = (payOption) => {
+
     var data = {
       payment_type: payOption.key || paymentOption.key,
       transaction_ref: moment().unix(),
@@ -99,11 +99,10 @@ const CheckoutAccordion = ({ cartSummary, user }) => {
       to: cartSummary.outlet.name,
       outlet_id: cartSummary.outlet.id
     };
-    console.log(data, 'trans data');
+
     createTransaction(
       data,
       success => {
-        console.log(success);
         orderCheckout(success.data.id);
       },
       errorMessages => {
@@ -113,21 +112,20 @@ const CheckoutAccordion = ({ cartSummary, user }) => {
   };
 
   const orderCheckout = (id) => {
-
     var data = {
       address_id: address.id,
       slot_time: `${slot.start_time} - ${slot.end_time}`,
       slot_date: slot.date,
-      order_transaction_id: id
+      order_transaction_id: id,
+      outlet_id: cartSummary.outlet.id
     };
-
-    console.log(data);
 
     createOrder(
       data,
       success => {
-        console.log(success);
-        history.push("/items/all");
+        message.success('Your order has been placed and items will be delivered at your door step');
+        updateCart({});
+        history.push("/orders");
       },
       errorMessages => {
         console.log(errorMessages);

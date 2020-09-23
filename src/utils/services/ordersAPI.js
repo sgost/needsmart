@@ -5,8 +5,6 @@ import Interceptor from './interceptor';
 const request = new Interceptor();
 
 export const createOrder = async (data, success, error) => {
-  console.log(data);
-
   const config = {
     headers: { Authorization: `Bearer ${localStorage.getItem('api_token')}` }
   };

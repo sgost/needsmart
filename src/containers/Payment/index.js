@@ -17,7 +17,6 @@ const PaymentContainer = props => {
   useEffect(() => {
     getPaymentModes(
       success => {
-        console.log(success.data);
         setModes(success.data);
       }
     );
@@ -26,13 +25,11 @@ const PaymentContainer = props => {
   const[value, setValue] = useState('');
 
   const modeChange = e => {
-    console.log(e.target.value);
     setValue(e.target.value);
   };
 
   const placeOrder = () => {
     let modeObj = modes.find((mode) => mode.id === value);
-    console.log(modeObj);
     if(modeObj) {
       props.placeOrder(modeObj);
     }
