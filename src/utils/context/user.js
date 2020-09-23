@@ -6,13 +6,13 @@ const UserContext = createContext({});
 const Context = ({ children }) => {
   const [user, setUser] = useState(null);
   useEffect(() => {
+    getDetails();
+  }, []);
+
+  const getDetails = () => {
     getUserDetails(res => {
       setUser(res);
     });
-  }, []);
-
-  const getDetails = (data) => {
-    setUser(data);
   };
 
   return <UserContext.Provider value={{user, getDetails}}>{children}</UserContext.Provider>;

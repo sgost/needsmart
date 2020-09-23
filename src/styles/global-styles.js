@@ -125,10 +125,6 @@ export const GlobalStyle = createGlobalStyle`
   line-height: 1.5;
   }
   
-  .ant-message-notice {
-    text-align: right;
-  }
-
   .ant-modal-mask {
     background-color: rgba(0, 0, 0, 0.70) !important;
   }
@@ -206,18 +202,23 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal !important;
     font-size: 16px !important;
     line-height: 24px !important;
-    &.active, &:hover {
+    &.active, &:hover, &:focus {
       color: ${palette.BUTTON_PRIMARY_COLOR} !important;
       border-color: ${palette.BUTTON_PRIMARY_COLOR} !important;
     }
   }
   .ant-btn-primary {
     height: 48px !important;
-    background-color: ${palette.BUTTON_PRIMARY_COLOR} !important;
+    background: ${palette.BUTTON_PRIMARY_COLOR} !important;
     border-color: ${palette.BUTTON_PRIMARY_COLOR} !important;
-    &.active, &:hover {
+    color: ${palette.WHITE_COLOR} !important;
+    &.active, &:hover, &:focus {
       color: ${palette.WHITE_COLOR} !important;
     }
+  }
+  .ant-btn-primary[disabled], .ant-btn-primary[disabled]:hover, .ant-btn-primary[disabled]:focus, .ant-btn-primary[disabled]:active {
+    color: ${palette.WHITE_COLOR} !important;
+    opacity: 0.5;
   }
   .ant-input {
     height: 48px !important;
@@ -329,5 +330,63 @@ export const GlobalStyle = createGlobalStyle`
         color: ${palette.DOVE_GRAY};
       }
     }
+  }
+
+  .checkoutCollapse {
+    background-color: ${palette.WHITE_COLOR} !important;
+    border: none !important;
+    .ant-collapse-item {
+      margin-bottom: 24px;
+      background: ${palette.WHITE_COLOR};
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      border: none !important;
+    }
+    .ant-collapse-header {
+      padding: 26px 48px !important;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 30px !important;
+      color: ${palette.PRIMARY_TXT_COLOR} !important;
+    }
+    .ant-collapse-content {
+      background-color: transparent;
+      border-top: none;
+      .ant-collapse-content-box {
+        padding: 0px;
+      }
+    }
+    .ant-collapse-item:last-child, .ant-collapse-item:last-child > .ant-collapse-header {
+      border-radius: 8px !important;
+    }
+    .ant-collapse-extra {
+      position: absolute;
+      right: 48px;
+      top: 26px;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 21px;
+      color: ${palette.BUTTON_PRIMARY_COLOR};
+      text-transform: uppercase;
+    }
+  }
+
+  .ant-radio-inner {
+    border-color: ${palette.ML_GREY} !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .ant-radio-checked .ant-radio-inner {
+    border-color: ${palette.ML_GREY} !important;
+  }
+  .ant-radio-inner::after {
+    width: 10px !important;
+    height: 10px !important;
+    background-color: ${palette.BUTTON_PRIMARY_COLOR} !important;
+    top: 4px !important;
+    left: 4px !important;
+  }
+  .ant-radio-checked::after {
+    border: 1px solid ${palette.ML_GREY} !important;
   }
 `;

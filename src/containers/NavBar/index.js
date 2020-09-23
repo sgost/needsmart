@@ -9,11 +9,14 @@ import { Drawer } from 'antd';
 import HomePage from "../../containers/HomePage";
 import ItemsPage from "../../containers/ItemsPage";
 import Cart from "../../containers/Cart";
+import PlacingOrder from '../../containers/PlacingOrder';
+import SearchPage from '../../containers/SearchPage';
 import { OutletContext } from '../../utils/context/outlet';
 import { CartSummaryContext } from '../../utils/context/cartSummary';
 import Search from "../../images/search.svg";
 import User from "../../images/user-outlined.svg";
 import CartIcon from "../../images/cart.svg";
+import OrdersIcon from "../../images/orders-icon.svg";
 import {
   Header,
   LogoContainer,
@@ -77,6 +80,14 @@ const NavBar = () => {
             </NavLink>
           </MenuItem>
           <MenuItem>
+            <NavLink className="link" to="/orders">
+              <MenuIcon>
+                <img src={OrdersIcon} alt="Orders" />
+              </MenuIcon>
+              <span>Orders</span>
+            </NavLink>
+          </MenuItem>
+          <MenuItem>
             <NavLink className="link" to="/account">
               <MenuIcon>
                 <img src={User} alt="Account" />
@@ -103,16 +114,19 @@ const NavBar = () => {
           <HomePage />
         </Route>
         <Route path="/search">
+          <SearchPage />
+        </Route>
+        <Route path="/orders">
           <EmptyState />
         </Route>
         <Route path="/account">
           <EmptyState />
         </Route>
-        <Route path="/cart">
-          <EmptyState />
-        </Route>
         <Route path="/:name/:id">
           <ItemsPage />
+        </Route>
+        <Route path="/checkout">
+          <PlacingOrder />
         </Route>
       </Switch>
       <Drawer

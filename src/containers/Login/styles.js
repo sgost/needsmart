@@ -12,10 +12,6 @@ export const LoginContainer = styled.div`
       .ant-btn {
         width: 100%;
       }
-      .ant-btn-primary[disabled], .ant-btn-primary[disabled]:hover, .ant-btn-primary[disabled]:focus, .ant-btn-primary[disabled]:active {
-        color: ${palette.WHITE_COLOR};
-        opacity: 0.5;
-      }
     }
     .numberInput .ant-input-wrapper {
       box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);

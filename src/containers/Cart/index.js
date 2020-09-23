@@ -18,7 +18,7 @@ const Cart = ({ outletDetails, cartSummary, onClose }) => {
           btnName="Shop Now"
           linkTo="/items/all"
           onClose={onClose}
-        /> : <CartItemsList outlet={outletDetails} onClose={onClose} />
+        /> : <CartItemsList showCheckout={true} outlet={outletDetails} onClose={onClose} />
       }
     </Fragment>
   );
