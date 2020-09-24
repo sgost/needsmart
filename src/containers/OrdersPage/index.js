@@ -38,7 +38,7 @@ const OrdersPage = () => {
         console.log(err);
       }
     );
-  }, []);
+  }, [history]);
 
   useEffect(() => {
     if(typeof window !== undefined) {

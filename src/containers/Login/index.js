@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import NumberForm from "./NumberForm";
 import OTPForm from "./OTPForm";
 import NameForm from "./NameForm";
@@ -15,6 +16,8 @@ import  {
 } from './styles';
 
 const LoginPage = props => {
+
+  const history = useHistory();
 
   const[saveNumber, setSaveNumber] = useState({});
 
@@ -47,6 +50,7 @@ const LoginPage = props => {
     } else {
       props.closeDrawer();
       getDetails();
+      history.go(0);
     }
   };
 

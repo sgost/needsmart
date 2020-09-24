@@ -5,13 +5,16 @@ import {
   Route,
   NavLink
 } from "react-router-dom";
-import { Drawer } from 'antd';
+import { Drawer, Dropdown } from 'antd';
 import HomePage from "../../containers/HomePage";
 import ItemsPage from "../../containers/ItemsPage";
 import Cart from "../../containers/Cart";
 import PlacingOrder from '../../containers/PlacingOrder';
 import SearchPage from '../../containers/SearchPage';
 import OrdersPage from '../../containers/OrdersPage';
+import LoginPage from '../../containers/Login';
+import AccountDropdown from '../../components/AccountDropdown';
+import { UserContext } from '../../utils/context/user';
 import { OutletContext } from '../../utils/context/outlet';
 import { CartSummaryContext } from '../../utils/context/cartSummary';
 import Search from "../../images/search.svg";
@@ -29,6 +32,9 @@ import {
 } from "./styles";
 
 const NavBar = () => {
+
+  const { user, getDetails } = useContext(UserContext);
+
   function EmptyState() {
     return (
       <div style={{padding: '80px'}}>
@@ -50,6 +56,21 @@ const NavBar = () => {
 
   const onClose = () => {
     setShowCart(false);
+  };
+
+  //account
+  const [showLogin, setShowLogin] = useState(false);
+
+  const account = () => {
+    if(user === null) {
+      setShowLogin(true);
+    } else {
+
+    }
+  };
+
+  const onLoginClose = () => {
+    setShowLogin(false);
   };
 
   return (
@@ -89,12 +110,28 @@ const NavBar = () => {
             </NavLink>
           </MenuItem>
           <MenuItem>
-            <NavLink className="link" to="/account">
-              <MenuIcon>
-                <img src={User} alt="Account" />
-              </MenuIcon>
-              <span>Account</span>
-            </NavLink>
+            {
+              user !== null ?
+              <Dropdown
+                overlay={<AccountDropdown user={user} userDetails={getDetails} />}
+                placement="bottomCenter"
+                arrow
+                overlayClassName="accountDropdown"
+              >
+                <span className="link" onClick={account}>
+                  <MenuIcon>
+                    <img src={User} alt="Account" />
+                  </MenuIcon>
+                  <span>Account</span>
+                </span>
+              </Dropdown> :
+              <span className="link" onClick={account}>
+                <MenuIcon>
+                  <img src={User} alt="Account" />
+                </MenuIcon>
+                <span>Log in</span>
+              </span>
+            }
           </MenuItem>
           <MenuItem>
             <span className="link" onClick={cartClick}>
@@ -120,9 +157,6 @@ const NavBar = () => {
         <Route path="/orders">
           <OrdersPage />
         </Route>
-        <Route path="/account">
-          <EmptyState />
-        </Route>
         <Route path="/:name/:id">
           <ItemsPage />
         </Route>
@@ -130,6 +164,17 @@ const NavBar = () => {
           <PlacingOrder />
         </Route>
       </Switch>
+      <Drawer
+        title="Log in"
+        placement="right"
+        closable={true}
+        onClose={onLoginClose}
+        visible={showLogin}
+        className="customDrawer"
+        destroyOnClose={true}
+      >
+        <LoginPage closeDrawer={onLoginClose} />
+      </Drawer>
       <Drawer
         title="Cart"
         placement="right"
