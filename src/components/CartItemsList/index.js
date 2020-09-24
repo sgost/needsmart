@@ -29,9 +29,7 @@ const CartItemsList = ({ outlet, onClose, showCheckout }) => {
         success => {
           getDetails(success.data);
         },
-        errorMessages => {
-          console.log('error');
-        }
+        errorMessages => {}
       );
     }
   };
@@ -42,9 +40,7 @@ const CartItemsList = ({ outlet, onClose, showCheckout }) => {
       success => {
         getDetails(success.data);
       },
-      errorMessages => {
-        console.log('error');
-      }
+      errorMessages => {}
     );
   };
 

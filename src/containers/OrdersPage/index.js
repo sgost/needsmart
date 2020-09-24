@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useContext } from 'react';
 import {
   Switch,
   Route,
@@ -7,14 +7,18 @@ import {
 import { Row, Col } from 'antd';
 import Order from '../../components/Order';
 import OrderDetails from '../../containers/OrderDetails';
+import EmptyList from '../../images/empty-list.png';
 import EmptyState from "../../components/EmptyState";
 import EmptyOrders from "../../images/no-orders.png";
 import { getMyOrders } from "../../utils/services/ordersAPI";
+import { UserContext } from '../../utils/context/user';
 import {
   Container
 } from './styles';
 
 const OrdersPage = () => {
+
+  const { user } = useContext(UserContext);
 
   const[loading, setLoading] = useState(true);
 
@@ -35,7 +39,7 @@ const OrdersPage = () => {
         }
       },
       err => {
-        console.log(err);
+        setLoading(false);
       }
     );
   }, [history]);
@@ -56,6 +60,14 @@ const OrdersPage = () => {
   return (
     <Fragment>
       {
+        user === null && !loading ?
+        <EmptyState
+          image={EmptyList}
+          title="It’s empty here"
+          description="Please sign in to continue shopping"
+          btnName="SIGN IN"
+          signIn={true}
+        /> :
         !loading &&
         <Container>
           {

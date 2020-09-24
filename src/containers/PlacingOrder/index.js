@@ -6,6 +6,7 @@ import { UserContext } from '../../utils/context/user';
 import { CartSummaryContext } from '../../utils/context/cartSummary';
 import EmptyState from "../../components/EmptyState";
 import EmptyCart from "../../images/empty-cart.png";
+import EmptyList from '../../images/empty-list.png';
 import {
   Container,
   CartContainer,
@@ -21,12 +22,22 @@ const PlacingOrder = () => {
   const { cartSummary, getDetails } = useContext(CartSummaryContext);
 
   useEffect(() => {
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, []);
 
   return (
     <Fragment>
       {
+        !loading && user === null ?
+        <EmptyState
+          image={EmptyList}
+          title="It’s empty here"
+          description="Please sign in to continue shopping"
+          btnName="SIGN IN"
+          signIn={true}
+        /> :
         !loading &&
         <Container>
           {

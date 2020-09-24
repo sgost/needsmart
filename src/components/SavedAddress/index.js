@@ -58,9 +58,7 @@ const SavedAddress = props => {
           success => {
             props.deleted(data);
           },
-          errorMessages => {
-            console.log('error');
-          }
+          errorMessages => {}
         );
       },
       onCancel() {},

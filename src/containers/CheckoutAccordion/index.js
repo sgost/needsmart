@@ -105,9 +105,7 @@ const CheckoutAccordion = ({ cartSummary, updateCart, user }) => {
       success => {
         orderCheckout(success.data.id);
       },
-      errorMessages => {
-        console.log(errorMessages);
-      }
+      errorMessages => {}
     );
   };
 
@@ -127,9 +125,7 @@ const CheckoutAccordion = ({ cartSummary, updateCart, user }) => {
         updateCart({});
         history.push("/orders");
       },
-      errorMessages => {
-        console.log(errorMessages);
-      }
+      errorMessages => {}
     );
   };
 

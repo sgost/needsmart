@@ -24,10 +24,10 @@ const NameForm = props => {
     updateUser(
       nameObj,
       success => {
-        getDetails();
         props.numNameSuccess();
         setActive(false);
         history.go(0);
+        getDetails();
       },
       errorMessages => {
         setActive(true);

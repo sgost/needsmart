@@ -35,13 +35,13 @@ const NavBar = () => {
 
   const { user, getDetails } = useContext(UserContext);
 
-  function EmptyState() {
-    return (
-      <div style={{padding: '80px'}}>
-        <h2 style={{textAlign: 'center'}}>This page is under construction.</h2>
-      </div>
-    );
-  }
+  // function EmptyState() {
+  //   return (
+  //     <div style={{padding: '80px'}}>
+  //       <h2 style={{textAlign: 'center'}}>This page is under construction.</h2>
+  //     </div>
+  //   );
+  // }
 
   const outletDetails = useContext(OutletContext);
 

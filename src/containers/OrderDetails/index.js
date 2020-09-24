@@ -34,9 +34,7 @@ const OrderDetails = ({ match }) => {
       res => {
         setOrderItem(res.data);
       },
-      err => {
-        console.log(err);
-      }
+      err => {}
     );
   };
 

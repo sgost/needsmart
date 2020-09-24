@@ -49,8 +49,8 @@ const LoginPage = props => {
       setShowNameForm(true);
     } else {
       props.closeDrawer();
-      getDetails();
       history.go(0);
+      getDetails();
     }
   };
 
