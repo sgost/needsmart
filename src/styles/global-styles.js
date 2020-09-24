@@ -389,4 +389,11 @@ export const GlobalStyle = createGlobalStyle`
   .ant-radio-checked::after {
     border: 1px solid ${palette.ML_GREY} !important;
   }
+
+  .accountDropdown {
+    min-width: 290px !important;
+    .ant-dropdown-arrow {
+      box-shadow: -2px -2px 3px rgba(0, 0, 0, 0.09);
+    }
+  }
 `;

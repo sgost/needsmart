@@ -1,9 +1,12 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Form, Input, Button } from "antd"
 import { updateUser } from "../../utils/services/auth";
 import { UserContext } from '../../utils/context/user';
 
 const NameForm = props => {
+
+  const history = useHistory();
 
   const { getDetails } = useContext(UserContext);
 
@@ -24,6 +27,7 @@ const NameForm = props => {
         getDetails();
         props.numNameSuccess();
         setActive(false);
+        history.go(0);
       },
       errorMessages => {
         setActive(true);
