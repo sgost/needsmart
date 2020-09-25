@@ -33,7 +33,7 @@ const OrdersPage = () => {
       res => {
         setOrders(res.data);
         setLoading(false);
-        if(res.data.length > 0) {
+        if(res.data.length > 0 && window.innerWidth > 769) {
           history.push('/orders/' + res.data[0].id);
           setCurrentId(res.data[0].id);
         }

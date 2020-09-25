@@ -2,12 +2,21 @@ import styled from 'styled-components';
 import * as palette from '../../styles/variables';
 
 export const Container = styled.div`
-  height: calc(100% - 84px);
+  height: calc(100% - 96px);
   .rowContainer {
     max-width: 1250px;
     margin: 0 auto;
     .accordion, .orderSummary {
       padding: 38px;
+    }
+    @media only screen and (max-width: 769px) {
+      margin: 0 auto 64px;
+      .accordion {
+        padding: 20px 0px;
+      }
+      .orderSummary {
+        padding: 20px 15px;
+      }
     }
   }
 `;

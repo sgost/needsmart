@@ -67,11 +67,29 @@ export const SlotContainer = styled.div`
       opacity: 0.5;
     }
   }
+
+  @media only screen and (max-width: 769px) {
+    padding: 0px 15px;
+    .radioBtnGrp {
+      .ant-radio-button-wrapper {
+        height: auto;
+        padding: 12px 8px;
+        font-size: 12px;
+        line-height: 21px;
+        &:nth-child(odd) {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
 `;
 
 export const ProceedBtn = styled.div`
   margin-top: 35px;
   .ant-btn {
     width: 305px;
+    @media only screen and (max-width: 769px) {
+      width: 100%;
+    }
   }
 `;

@@ -43,8 +43,11 @@ export const DeleteAddress = styled.span`
 `;
 
 export const DeliverBtn = styled.div`
-  margin-bottom: 5px 0px 28px;
+  margin: 5px 0px 28px;
   .ant-btn {
     width: 305px;
+    @media only screen and (max-width: 769px) {
+      width: 100%;
+    }
   }
 `;

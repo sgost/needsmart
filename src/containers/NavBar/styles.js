@@ -12,6 +12,10 @@ export const Header = styled.header`
   @media only screen and (max-width: 992px) {
     padding: 15px 25px;
   }
+  @media only screen and (max-width: 769px) {
+    padding: 14px 16px;
+    align-items: flex-start;
+  }
   position: sticky;
   left: 0px;
   right: 0px;
@@ -48,6 +52,10 @@ export const HeaderText = styled.span`
     line-height: 18px;
     color: ${palette.PRIMARY_TXT_COLOR};
   }
+  @media only screen and (max-width: 769px) {
+    font-size: 20px;
+    line-height: 29px;
+  }
 `;
 
 export const MenuContainer = styled.ul`
@@ -82,6 +90,12 @@ export const MenuItem = styled.li`
   .active {
     font-weight: 600;
   }
+  @media only screen and (max-width: 769px) {
+    margin: 0px;
+    .link {
+      padding: 0px;
+    }
+  }
 `;
 
 export const MenuIcon = styled.span`
@@ -99,4 +113,81 @@ export const CartNotify = styled.span`
   display: inline-block;
   position: absolute;
   right: 0;
+`;
+
+export const OutletSection = styled.span`
+
+`;
+
+export const OutletTiming = styled.span`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: ${palette.DOVE_GRAY};
+  margin: 5px 0px;
+  img {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 5px;
+  }
+  .payModes {
+    margin-right: 5px;
+    &:after {
+      content:', ';
+    }
+    &:last-child {
+      margin-right: 0px;
+      &:after {
+        content: '';
+      }
+    }
+  }
+`;
+
+export const MenuListContainer = styled.ul`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background: ${palette.WHITE_COLOR};
+  box-shadow: 0px -2px 5px rgba(76, 40, 130, 0.1);
+  z-index: 1000;
+`;
+
+export const MobMenuList = styled.li`
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: ${palette.PRIMARY_TXT_COLOR};
+    padding: 11px 5px;
+    text-decoration: unset;
+    cursor: pointer;
+    &:hover, &:focus, &:active {
+      color: ${palette.PRIMARY_TXT_COLOR};
+    }
+  }
+  .active {
+    font-weight: 600;
+    color: ${palette.BUTTON_PRIMARY_COLOR} !important;
+    svg path {
+      fill: ${palette.BUTTON_PRIMARY_COLOR};
+    }
+  }
+`;
+
+export const MenuListIcon = styled.span`
+  width: 24px;
+  height: 24px;
+  position: relative;
 `;

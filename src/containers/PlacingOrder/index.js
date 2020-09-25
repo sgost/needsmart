@@ -21,7 +21,14 @@ const PlacingOrder = () => {
 
   const { cartSummary, getDetails } = useContext(CartSummaryContext);
 
+  const[mobileView, setMobileView] = useState(false);
+
   useEffect(() => {
+    if(typeof window !== undefined) {
+      if(window.innerWidth < 769) {
+        setMobileView(true);
+      }
+    }
     setTimeout(() => {
       setLoading(false);
     }, 1000);
@@ -39,20 +46,31 @@ const PlacingOrder = () => {
           signIn={true}
         /> :
         !loading &&
-        <Container>
+        <Fragment>
           {
             Object.keys(cartSummary).length !== 0 ?
-            <Row className="rowContainer">
-              <Col xs={24} sm={24} md={15} lg={16} xl={16} className="accordion">
-                <CheckoutAccordion cartSummary={cartSummary} updateCart={(val) => getDetails(val)} user={user} />
-              </Col>
-              <Col xs={24} sm={24} md={9} lg={8} xl={8} className="orderSummary">
-                <CartContainer>
-                  <Title>Order Summary</Title>
-                  <CartItemsList showCheckout={false} />
-                </CartContainer>
-              </Col>
-            </Row> :
+            <Container>
+              <Row className="rowContainer">
+                {
+                  mobileView &&
+                  <Col xs={24} sm={24} md={9} lg={8} xl={8} className="orderSummary">
+                    <CartContainer>
+                      <Title>Order Summary</Title>
+                      <CartItemsList showCheckout={false} />
+                    </CartContainer>
+                  </Col>
+                }
+                <Col xs={24} sm={24} md={15} lg={16} xl={16} className="accordion">
+                  <CheckoutAccordion cartSummary={cartSummary} updateCart={(val) => getDetails(val)} user={user} />
+                </Col>
+                <Col xs={24} sm={24} md={9} lg={8} xl={8} className="orderSummary">
+                  <CartContainer>
+                    <Title>Order Summary</Title>
+                    <CartItemsList showCheckout={false} />
+                  </CartContainer>
+                </Col>
+              </Row>
+            </Container> :
             <EmptyState
               image={EmptyCart}
               title="Your cart is empty"
@@ -61,7 +79,7 @@ const PlacingOrder = () => {
               linkTo="/items/all"
             />
           }
-        </Container>
+        </Fragment>
       }
     </Fragment>
   );

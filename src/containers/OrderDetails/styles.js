@@ -4,6 +4,11 @@ import * as palette from '../../styles/variables';
 export const OrderDetailsContainer = styled.div`
   max-width: 365px;
   margin: 0 auto;
+  @media only screen and (max-width: 769px) {
+    max-width: unset;
+    margin: 0px 0px 50px;
+    padding: 24px;
+  }
 `;
 
 export const DeliveryAddress = styled.div`

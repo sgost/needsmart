@@ -11,6 +11,9 @@ export const Container = styled.div`
     &:last-child {
       border-radius: 0px 0px 8px 8px;
     }
+    @media only screen and (max-width: 769px) {
+      padding: 15px 15px 0px;
+    }
   }
   .ant-radio-wrapper-checked  {
     background: ${palette.ALICE_BLUE};
@@ -63,6 +66,13 @@ export const AddButton = styled.div`
       width: 24px;
       height: 24px;
       margin-right: 12px;
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    padding: 5px 15px 15px;
+    .ant-btn {
+      padding: 4px 15px;
+      width: 100%;
     }
   }
 `;

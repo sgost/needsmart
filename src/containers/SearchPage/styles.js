@@ -4,6 +4,9 @@ import * as palette from '../../styles/variables';
 export const Container = styled.div`
   max-width: 650px;
   margin: 50px auto;
+  @media only screen and (max-width: 769px) {
+    margin: 20px auto 64px;
+  }
 `;
 
 export const SearchInput = styled.div`
@@ -39,10 +42,25 @@ export const SearchInput = styled.div`
     color: ${palette.MD_GREY};
     cursor: pointer;
   }
+  @media only screen and (max-width: 769px) {
+    margin: 0px 20px;
+    .ant-input-affix-wrapper {
+      height: 40px !important;
+      font-size: 14px !important;
+      line-height: 18px !important;
+      margin-right: 15px;
+    }
+    .anticon-close {
+      font-size: 16px;
+    }
+  }
 `;
 
 export const SearchList = styled.div`
   max-width: 600px;
   margin: 25px auto;
   padding-right: 60px;
+  @media only screen and (max-width: 769px) {
+    padding: 0px 15px;
+  }
 `;
