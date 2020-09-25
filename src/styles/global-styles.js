@@ -26,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
   html, body, #root {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
   }
 
   *, *:before, *:after {
@@ -368,6 +369,18 @@ export const GlobalStyle = createGlobalStyle`
       line-height: 21px;
       color: ${palette.BUTTON_PRIMARY_COLOR};
       text-transform: uppercase;
+    }
+    @media only screen and (max-width: 769px) {
+      .ant-collapse-item {
+        box-shadow: none;
+      }
+      .ant-collapse-header {
+        padding: 15px !important;
+      }
+      .ant-collapse-extra {
+        right: 15px;
+        top: 20px;
+      }
     }
   }
 

@@ -9,6 +9,11 @@ export const OrderCard = styled.div`
   &:hover {
     box-shadow: 0 1px 2px -2px rgba(0,0,0,.16), 0 3px 6px 0 rgba(0,0,0,.12), 0 5px 12px 4px rgba(0,0,0,.09);
   }
+  @media only screen and (max-width: 769px) {
+    box-shadow: none;
+    border-radius: unset;
+    padding: 15px 0px;
+  }
 `;
 
 export const CardTitle = styled.div`
@@ -97,6 +102,9 @@ export const DeliveryDetails = styled.div`
     line-height: 21px;
     color: ${palette.SILVER};
     max-width: 275px;
+    @media only screen and (max-width: 769px) {
+      max-width: 200px;
+    }
   }
   .phone {
     display: flex;

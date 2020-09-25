@@ -67,9 +67,7 @@ const Item = props => {
         success => {
           getDetails(success.data);
         },
-        errorMessages => {
-          console.log('error');
-        }
+        errorMessages => {}
       );
     }
   };
@@ -81,9 +79,7 @@ const Item = props => {
         data.item.quantity = 0;
         getDetails(success.data);
       },
-      errorMessages => {
-        console.log('error');
-      }
+      errorMessages => {}
     );
   };
 

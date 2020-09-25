@@ -39,7 +39,7 @@ const ItemsPage = ({ match }) => {
     <Container>
       <Row className="itemsListSection">
         <Col xs={24} sm={24} md={4} lg={4} xl={4}>
-          <Menu mode={menuMode} selectedKeys={[currentKey]}>
+          <Menu mode={menuMode} selectedKeys={[currentKey]} className="resMenu">
             <Menu.Item key="all">
               <Link to="/items/all">All</Link>
             </Menu.Item>

@@ -12,6 +12,17 @@ export const Container = styled.div`
     }
     @media only screen and (max-width: 769px) {
       height: auto;
+      margin-bottom: 64px;
+      .resMenu {
+        width: 100%;
+        overflow-x: auto;
+        position: fixed;
+        z-index: 5;
+        -ms-overflow-style: none;
+        ::-webkit-scrollbar {
+          display: none;
+        }
+      }
     }
   }
   .itemsList, .cartList {

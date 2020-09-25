@@ -9,6 +9,9 @@ export const Container = styled.div`
       padding-top: 8px;
       .ant-btn-primary {
         width: 250px;
+        @media only screen and (max-width: 769px) {
+          width: auto;
+        }
       }
       .cancelBtn {
         width: auto;

@@ -38,7 +38,7 @@ const SearchPage = () => {
         }, 1000);
       },
       errorMessages => {
-        console.log(errorMessages);
+        setLoading(false);
       }
     );
   };

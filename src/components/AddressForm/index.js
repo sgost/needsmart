@@ -17,9 +17,7 @@ const AddressForm = props => {
         success => {
           props.updated(success);
         },
-        errorMessages => {
-          console.log('error');
-        }
+        errorMessages => {}
       );
     } else {
       saveAddress(
@@ -27,9 +25,7 @@ const AddressForm = props => {
         success => {
           props.saved(success);
         },
-        errorMessages => {
-          console.log('error');
-        }
+        errorMessages => {}
       );
     }
   };

@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 0px 48px 28px;
+  @media only screen and (max-width: 769px) {
+    padding: 0px 15px;
+  }
   .paymentModes {
     .ant-radio-wrapper {
       display: flex;

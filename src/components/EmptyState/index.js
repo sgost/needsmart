@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button } from 'antd';
+import { Button, Drawer } from 'antd';
+import LoginPage from '../../containers/Login';
 import {
   Container,
   ContentSection,
@@ -12,9 +13,18 @@ const EmptyState = props => {
 
   const content = props;
 
-  const close = () => {
+  const [showLogin, setShowLogin] = useState(false);
+
+  const onClose = () => {
+    setShowLogin(false);
+  };
+
+  const btnClick = () => {
     if(content.onClose) {
       content.onClose();
+    }
+    if(content.signIn) {
+      setShowLogin(true);
     }
   };
 
@@ -28,12 +38,27 @@ const EmptyState = props => {
           <h3>{content.title}</h3>
           <p>{content.description}</p>
         </Content>
-        <Button type="primary">
-          <NavLink to={content.linkTo} onClick={close}>
-            {content.btnName}
-          </NavLink>
+        <Button type="primary" onClick={btnClick}>
+          {
+            content.linkTo ?
+            <NavLink to={content.linkTo}>
+              {content.btnName}
+            </NavLink> :
+            content.btnName
+          }
         </Button>
       </ContentSection>
+      <Drawer
+        title="Log in"
+        placement="right"
+        closable={true}
+        onClose={onClose}
+        visible={showLogin}
+        className="customDrawer"
+        destroyOnClose={true}
+      >
+        <LoginPage closeDrawer={onClose} />
+      </Drawer>
     </Container>
   );
 };

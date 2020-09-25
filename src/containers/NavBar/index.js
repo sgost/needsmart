@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext, Fragment } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,6 +14,10 @@ import SearchPage from '../../containers/SearchPage';
 import OrdersPage from '../../containers/OrdersPage';
 import LoginPage from '../../containers/Login';
 import AccountDropdown from '../../components/AccountDropdown';
+import MobileHeader from "./mobileHeader";
+import MobileMenu from "./mobileMenu";
+import OrderDetails from '../../containers/OrderDetails';
+import AccountPage from '../../containers/AccountPage';
 import { UserContext } from '../../utils/context/user';
 import { OutletContext } from '../../utils/context/outlet';
 import { CartSummaryContext } from '../../utils/context/cartSummary';
@@ -35,13 +39,13 @@ const NavBar = () => {
 
   const { user, getDetails } = useContext(UserContext);
 
-  function EmptyState() {
-    return (
-      <div style={{padding: '80px'}}>
-        <h2 style={{textAlign: 'center'}}>This page is under construction.</h2>
-      </div>
-    );
-  }
+  // function EmptyState() {
+  //   return (
+  //     <div style={{padding: '80px'}}>
+  //       <h2 style={{textAlign: 'center'}}>This page is under construction.</h2>
+  //     </div>
+  //   );
+  // }
 
   const outletDetails = useContext(OutletContext);
 
@@ -73,79 +77,104 @@ const NavBar = () => {
     setShowLogin(false);
   };
 
+  //responsive menu
+
+  const[showResMenu, setShowResMenu] = useState(false);
+
+  useEffect(() => {
+    if(typeof window !== undefined) {
+      if(window.innerWidth < 769) {
+        setShowResMenu(true);
+      }
+    }
+  }, []);
+
   return (
     <Router>
       {
         outletDetails &&
-      <Header>
-        <LogoContainer>
-          <h1>
-            <NavLink to="/">
-              {
-                outletDetails.image_url.length > 2 &&
-                <img src={outletDetails.image_url} alt={outletDetails.name} />
-              }
-              <HeaderText>
-                {outletDetails.name}
-                <span className="subHeading">Powered by Needsmart-Fidisys</span>
-              </HeaderText>
-            </NavLink>
-          </h1>
-        </LogoContainer>
-        <MenuContainer>
-          <MenuItem>
-            <NavLink className="link" to="/search">
-              <MenuIcon>
-                <img src={Search} alt="Search" />
-              </MenuIcon>
-              <span>Search</span>
-            </NavLink>
-          </MenuItem>
-          <MenuItem>
-            <NavLink className="link" to="/orders">
-              <MenuIcon>
-                <img src={OrdersIcon} alt="Orders" />
-              </MenuIcon>
-              <span>Orders</span>
-            </NavLink>
-          </MenuItem>
-          <MenuItem>
-            {
-              user !== null ?
-              <Dropdown
-                overlay={<AccountDropdown user={user} userDetails={getDetails} />}
-                placement="bottomCenter"
-                arrow
-                overlayClassName="accountDropdown"
-              >
-                <span className="link" onClick={account}>
-                  <MenuIcon>
-                    <img src={User} alt="Account" />
-                  </MenuIcon>
-                  <span>Account</span>
-                </span>
-              </Dropdown> :
-              <span className="link" onClick={account}>
-                <MenuIcon>
-                  <img src={User} alt="Account" />
-                </MenuIcon>
-                <span>Log in</span>
-              </span>
-            }
-          </MenuItem>
-          <MenuItem>
-            <span className="link" onClick={cartClick}>
-              <MenuIcon>
-                <img src={CartIcon} alt="Cart" />
-                {
-                  Object.keys(cartSummary).length !== 0 && cartSummary.cart_items.length && <CartNotify />
-                }
-              </MenuIcon>
-              <span>Cart</span>
-            </span>
-          </MenuItem>
-        </MenuContainer>
-      </Header>
+        <Fragment>
+          {
+            !showResMenu ?
+            <Header>
+              <LogoContainer>
+                <h1>
+                  <NavLink to="/">
+                    {
+                      outletDetails.image_url.length > 2 &&
+                      <img src={outletDetails.image_url} alt={outletDetails.name} />
+                    }
+                    <HeaderText>
+                      {outletDetails.name}
+                      <span className="subHeading">Powered by Needsmart-Fidisys</span>
+                    </HeaderText>
+                  </NavLink>
+                </h1>
+              </LogoContainer>
+              <MenuContainer>
+                <MenuItem>
+                  <NavLink className="link" to="/search">
+                    <MenuIcon>
+                      <img src={Search} alt="Search" />
+                    </MenuIcon>
+                    <span>Search</span>
+                  </NavLink>
+                </MenuItem>
+                <MenuItem>
+                  <NavLink className="link" to="/orders">
+                    <MenuIcon>
+                      <img src={OrdersIcon} alt="Orders" />
+                    </MenuIcon>
+                    <span>Orders</span>
+                  </NavLink>
+                </MenuItem>
+                <MenuItem>
+                  {
+                    user !== null ?
+                    <Dropdown
+                      overlay={<AccountDropdown user={user} userDetails={getDetails} />}
+                      placement="bottomCenter"
+                      arrow
+                      overlayClassName="accountDropdown"
+                    >
+                      <span className="link" onClick={account}>
+                        <MenuIcon>
+                          <img src={User} alt="Account" />
+                        </MenuIcon>
+                        <span>Account</span>
+                      </span>
+                    </Dropdown> :
+                    <span className="link" onClick={account}>
+                      <MenuIcon>
+                        <img src={User} alt="Account" />
+                      </MenuIcon>
+                      <span>Log in</span>
+                    </span>
+                  }
+                </MenuItem>
+                <MenuItem>
+                  <span className="link" onClick={cartClick}>
+                    <MenuIcon>
+                      <img src={CartIcon} alt="Cart" />
+                      {
+                        Object.keys(cartSummary).length !== 0 && cartSummary.cart_items.length && <CartNotify />
+                      }
+                    </MenuIcon>
+                    <span>Cart</span>
+                  </span>
+                </MenuItem>
+              </MenuContainer>
+            </Header> :
+            <Fragment>
+              <MobileHeader
+                outletDetails={outletDetails}
+                cartSummary={cartSummary}
+                cartClick={cartClick}
+              />
+              <MobileMenu />
+            </Fragment>
+          }
+        </Fragment>
       }
       <Switch>
         <Route exact path="/">
@@ -154,6 +183,12 @@ const NavBar = () => {
         <Route path="/search">
           <SearchPage />
         </Route>
+        {
+          showResMenu &&
+          <Route path="/orders/:id">
+            <OrderDetails />
+          </Route>
+        }
         <Route path="/orders">
           <OrdersPage />
         </Route>
@@ -163,6 +198,12 @@ const NavBar = () => {
         <Route path="/checkout">
           <PlacingOrder />
         </Route>
+        {
+          showResMenu &&
+          <Route path="/account">
+            <AccountPage />
+          </Route>
+        }
       </Switch>
       <Drawer
         title="Log in"
