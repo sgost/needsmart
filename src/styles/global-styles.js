@@ -409,4 +409,15 @@ export const GlobalStyle = createGlobalStyle`
       box-shadow: -2px -2px 3px rgba(0, 0, 0, 0.09);
     }
   }
+
+  .keypadOpen {
+    ul {
+      position: absolute;
+    }
+  }
+  .keypadClose {
+    ul {
+      position: fixed;
+    }
+  }
 `;

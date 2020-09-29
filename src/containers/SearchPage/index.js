@@ -43,6 +43,16 @@ const SearchPage = () => {
     );
   };
 
+  const focus = () => {
+    var elem = document.getElementById('mobMenu');
+    elem.className = "keypadOpen";
+  };
+
+  const blur = () => {
+    var elem = document.getElementById('mobMenu');
+    elem.className = "keypadClose";
+  };
+
   return (
     <Container>
       <SearchInput>
@@ -51,6 +61,8 @@ const SearchPage = () => {
           value={query}
           onChange={onSearch}
           prefix={<SearchOutlined />}
+          onFocus={focus}
+          onBlur={blur}
         />
         <CloseOutlined onClick={clearQuery} />
       </SearchInput>

@@ -8,7 +8,7 @@ export const Container = styled.div`
     max-width: 1100px;
     margin: 0 auto;
     @media only screen and (min-width: 1500px) {
-      max-width: 1200px;
+      max-width: 1300px;
     }
     @media only screen and (max-width: 769px) {
       height: auto;
@@ -22,6 +22,9 @@ export const Container = styled.div`
         ::-webkit-scrollbar {
           display: none;
         }
+      }
+      .itemsList {
+        min-width: 100%;
       }
     }
   }

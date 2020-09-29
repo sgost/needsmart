@@ -13,9 +13,11 @@ export const Container = styled.div`
       margin: 0 auto 64px;
       .accordion {
         padding: 20px 0px;
+        min-width: 100%;
       }
       .orderSummary {
         padding: 20px 15px;
+        min-width: 100%;
       }
     }
   }

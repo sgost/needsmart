@@ -52,10 +52,10 @@ const ItemsPage = ({ match }) => {
             }
           </Menu>
         </Col>
-        <Col xs={24} sm={24} md={10} lg={9} xl={9} className="itemsList">
+        <Col xs={24} sm={24} md={10} lg={10} xl={10} className="itemsList">
           <ItemsList subCatId={match.params.id} />
         </Col>
-        <Col xs={24} sm={24} md={10} lg={11} xl={11} className="cartList">
+        <Col xs={24} sm={24} md={10} lg={10} xl={10} className="cartList">
           <CartContainer>
             {
               Object.keys(cartSummary).length !== 0 &&

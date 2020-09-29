@@ -16,6 +16,7 @@ export const ItemSection = styled.div`
   flex-direction: row;
   align-items: center;
   padding-right: 20px;
+  flex: 2;
 `;
 
 export const ItemImage = styled.div`
@@ -63,6 +64,8 @@ export const ItemPrice = styled.div`
 
 export const AddItem = styled.div`
   display: flex;
+  flex: 1;
+  justify-content: center;
   .notAvail {
     font-weight: normal;
     font-size: 14px;

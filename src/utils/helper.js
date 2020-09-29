@@ -20,3 +20,6 @@ export const TRANSACTIONURL = 'order_transactions';
 
 //orders
 export const ORDERSURL = 'orders';
+
+//offers
+export const OFFERSURL = 'offers';

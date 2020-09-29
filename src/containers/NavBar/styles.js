@@ -8,9 +8,9 @@ export const Header = styled.header`
   justify-content: space-between;
   background: ${palette.WHITE_COLOR};
   box-shadow: 0px 1px 5px rgba(76, 40, 130, 0.1);
-  padding: 15px 100px;
+  padding: 21px 100px;
   @media only screen and (max-width: 992px) {
-    padding: 15px 25px;
+    padding: 21px 25px;
   }
   @media only screen and (max-width: 769px) {
     padding: 14px 16px;
@@ -86,9 +86,19 @@ export const MenuItem = styled.li`
     &:hover, &:focus, &:active {
       color: ${palette.PRIMARY_TXT_COLOR};
     }
+    span {
+      margin-left: 9px;
+    }
   }
   .active {
     font-weight: 600;
+    color: ${palette.BUTTON_PRIMARY_COLOR};
+    svg path {
+      fill: ${palette.BUTTON_PRIMARY_COLOR};
+    }
+    span {
+      color: ${palette.BUTTON_PRIMARY_COLOR};
+    }
   }
   @media only screen and (max-width: 769px) {
     margin: 0px;
@@ -101,7 +111,6 @@ export const MenuItem = styled.li`
 export const MenuIcon = styled.span`
   width: 24px;
   height: 24px;
-  margin-right: 8px;
   position: relative;
 `;
 
