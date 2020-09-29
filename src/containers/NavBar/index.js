@@ -21,10 +21,11 @@ import AccountPage from '../../containers/AccountPage';
 import { UserContext } from '../../utils/context/user';
 import { OutletContext } from '../../utils/context/outlet';
 import { CartSummaryContext } from '../../utils/context/cartSummary';
-import Search from "../../images/search.svg";
 import User from "../../images/user-outlined.svg";
 import CartIcon from "../../images/cart.svg";
-import OrdersIcon from "../../images/orders-icon.svg";
+import { ReactComponent as Search } from "../../images/search.svg";
+import { ReactComponent as OrdersIcon } from "../../images/orders-icon.svg";
+
 import {
   Header,
   LogoContainer,
@@ -114,17 +115,19 @@ const NavBar = () => {
               <MenuContainer>
                 <MenuItem>
                   <NavLink className="link" to="/search">
-                    <MenuIcon>
+                    <Search />
+                    {/* <MenuIcon>
                       <img src={Search} alt="Search" />
-                    </MenuIcon>
+                    </MenuIcon> */}
                     <span>Search</span>
                   </NavLink>
                 </MenuItem>
                 <MenuItem>
                   <NavLink className="link" to="/orders">
-                    <MenuIcon>
+                    {/* <MenuIcon>
                       <img src={OrdersIcon} alt="Orders" />
-                    </MenuIcon>
+                    </MenuIcon> */}
+                    <OrdersIcon />
                     <span>Orders</span>
                   </NavLink>
                 </MenuItem>

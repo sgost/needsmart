@@ -6,6 +6,9 @@ export const Container = styled.div`
   .ordersRow {
     max-width: 1050px;
     margin: 65px auto 30px;
+    @media only screen and (min-width: 1500px) {
+      max-width: 1250px;
+    }
     .ordersListCol, .ordersDetailsCol {
       padding: 0px 20px;
     }
@@ -13,6 +16,9 @@ export const Container = styled.div`
       margin: 24px 0px 84px;
       .ordersDetailsCol {
         display: none;
+      }
+      .ordersListCol {
+        min-width: 100%;
       }
     }
   }

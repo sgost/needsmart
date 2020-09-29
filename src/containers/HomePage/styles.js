@@ -2,11 +2,14 @@ import styled from 'styled-components';
 import * as palette from '../../styles/variables';
 
 export const Container = styled.div`
-  padding: 60px;
+  padding: 38px 60px 60px;
   .subCatList {
     max-width: 930px;
     margin: 0 auto;
     justify-content: center;
+    @media only screen and (min-width: 1500px) {
+      max-width: 1100px;
+    }
   }
   .subCatItems {
     padding: 11px;
@@ -47,6 +50,77 @@ export const Container = styled.div`
         line-height: 16px;
         border-radius: 8px;
       }
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    padding: 10px 10px 80px;
+  }
+`;
+
+export const CarouselContainer = styled.div`
+  position: relative;
+  border-radius: 16px;
+  max-width: 930px;
+  margin: 0px auto 20px;
+  .ant-carousel .slick-list .slick-slide > div > div {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+  }
+  .slick-dots {
+    bottom: 16px !important;
+  }
+  .ant-carousel .slick-dots li {
+    width: 10px;
+    height: 8px;
+  }
+  .ant-carousel .slick-dots li button {
+    height: 8px;
+    border-radius: 100%;
+    width: 8px;
+    opacity: 0.4;
+    background: ${palette.WHITE_COLOR};
+  }
+  .ant-carousel .slick-dots li.slick-active button {
+    background: ${palette.WHITE_COLOR};
+    opacity: 1;
+  }
+  .leftArrow, .rightArrow {
+    width: 32px;
+    height: 32px;
+    padding: 10px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: ${palette.PRIMARY_TXT_COLOR};
+    z-index: 1;
+    cursor: pointer;
+    &:hover {
+      background: rgba(255, 255, 255, 0.6);
+      opacity: 0.6;
+    }
+  }
+  .leftArrow {
+    left: 16px;
+  }
+  .rightArrow {
+    right: 16px;
+  }
+  @media (max-width: 769px) {
+    margin: 12px 0px 12px;
+    .leftArrow, .rightArrow {
+      display: none;
+    }
+    .ant-carousel .slick-list .slick-slide > div > div {
+      padding: 0px 6px;
+    }
+    .slick-dots {
+      bottom: 12px !important;
     }
   }
 `;
