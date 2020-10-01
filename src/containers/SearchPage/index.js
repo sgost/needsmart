@@ -45,12 +45,16 @@ const SearchPage = () => {
 
   const focus = () => {
     var elem = document.getElementById('mobMenu');
-    elem.className = "keypadOpen";
+    if(elem !== null) {
+      elem.className = "keypadOpen";
+    }
   };
 
   const blur = () => {
     var elem = document.getElementById('mobMenu');
-    elem.className = "keypadClose";
+    if(elem !== null) {
+      elem.className = "keypadClose";
+    }
   };
 
   return (
