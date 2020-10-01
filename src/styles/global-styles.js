@@ -412,12 +412,12 @@ export const GlobalStyle = createGlobalStyle`
 
   .keypadOpen {
     ul {
-      position: absolute;
+      display: none;
     }
   }
   .keypadClose {
     ul {
-      position: fixed;
+      display: flex;
     }
   }
 `;

@@ -113,7 +113,10 @@ const Item = props => {
         <ItemContainer>
           <ItemSection>
             <ItemImage>
-              <img src={data.item.image_url} alt={data.item.name} />
+              {
+                data.item.images_urls && data.item.images_urls.length > 0 &&
+                <img src={data.item.images_urls[0]} alt={data.item.name} />
+              }
             </ItemImage>
             <ItemDetails>
               <ItemName>{data.item.name}</ItemName>

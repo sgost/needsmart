@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: calc(100% - 96px);
   @media only screen and (max-width: 769px) {
     height: calc(100% - 176px);
     margin: 0px 20px;

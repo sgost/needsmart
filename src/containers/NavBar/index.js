@@ -101,10 +101,10 @@ const NavBar = () => {
               <LogoContainer>
                 <h1>
                   <NavLink to="/">
-                    {
+                    {/* {
                       outletDetails.image_url.length > 2 &&
                       <img src={outletDetails.image_url} alt={outletDetails.name} />
-                    }
+                    } */}
                     <HeaderText>
                       {outletDetails.name}
                       <span className="subHeading">Powered by Needsmart-Fidisys</span>
