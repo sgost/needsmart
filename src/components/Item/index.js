@@ -3,6 +3,7 @@ import { Button, Drawer, message, Modal } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import LoginPage from '../../containers/Login';
 import UnitsList from '../../components/UnitsList';
+import ViewItem from '../../components/ViewItem';
 import { addItems, removeItem } from "../../utils/services/cartAPI";
 import { CartSummaryContext } from '../../utils/context/cartSummary';
 import {
@@ -88,12 +89,12 @@ const Item = props => {
   };
 
   //all units modal
-
   const mainItem = props.data;
 
   const[modalVisible, setModalVisible] = useState(false);
 
-  const allUnits = () => {
+  const allUnits = (e) => {
+    e.stopPropagation();
     setModalVisible(true);
   };
 
@@ -106,12 +107,24 @@ const Item = props => {
     setData(prevObj => ({...prevObj, ...unit}));
   };
 
+  //view item
+
+  const[itemModalVisible, setItemModalVisible] = useState(false);
+
+  const showItem = () => {
+    setItemModalVisible(true);
+  };
+
+  const handleItemCancel = () => {
+    setItemModalVisible(false);
+  };
+
   return (
     <Fragment>
       {
         data.item &&
         <ItemContainer>
-          <ItemSection>
+          <ItemSection onClick={showItem}>
             <ItemImage>
               {
                 data.item.images_urls && data.item.images_urls.length > 0 &&
@@ -168,6 +181,15 @@ const Item = props => {
             className="unitModal"
           >
             <UnitsList mainItem={mainItem} changeUnit={changeUnit} />
+          </Modal>
+          <Modal
+            visible={itemModalVisible}
+            onCancel={handleItemCancel}
+            footer={null}
+            closable={true}
+            className="viewItemModal"
+          >
+            <ViewItem data={data} addToCart={addToCart} removeFromCart={removeFromCart} />
           </Modal>
         </ItemContainer>
       }

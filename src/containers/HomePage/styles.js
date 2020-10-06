@@ -69,7 +69,7 @@ export const CarouselContainer = styled.div`
     position: relative;
   }
   .slick-dots {
-    bottom: 16px !important;
+    bottom: 0px !important;
   }
   .ant-carousel .slick-dots li {
     width: 10px;
@@ -81,9 +81,10 @@ export const CarouselContainer = styled.div`
     width: 8px;
     opacity: 0.4;
     background: ${palette.WHITE_COLOR};
+    border: 1px solid ${palette.DOVE_GRAY};
   }
   .ant-carousel .slick-dots li.slick-active button {
-    background: ${palette.WHITE_COLOR};
+    background: ${palette.DOVE_GRAY};
     opacity: 1;
   }
   .leftArrow, .rightArrow {
@@ -100,16 +101,17 @@ export const CarouselContainer = styled.div`
     color: ${palette.PRIMARY_TXT_COLOR};
     z-index: 1;
     cursor: pointer;
+    background: rgba(255, 255, 255, 0.6);
     &:hover {
       background: rgba(255, 255, 255, 0.6);
       opacity: 0.6;
     }
   }
   .leftArrow {
-    left: 16px;
+    left: 0;
   }
   .rightArrow {
-    right: 16px;
+    right: 0;
   }
   @media (max-width: 769px) {
     margin: 12px 0px 12px;
@@ -120,7 +122,7 @@ export const CarouselContainer = styled.div`
       padding: 0px 6px;
     }
     .slick-dots {
-      bottom: 12px !important;
+      bottom: 0px !important;
     }
   }
 `;
