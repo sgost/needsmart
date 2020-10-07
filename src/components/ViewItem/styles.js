@@ -7,7 +7,7 @@ export const ItemContainer = styled.div`
   justify-content: space-between;
   padding: 25px;
   @media only screen and (max-width: 769px) {
-    padding: 25px 5px;
+    padding: 5px 5px 25px;
   }
 `;
 
@@ -18,11 +18,6 @@ export const ItemSection = styled.div`
   padding-right: 20px;
   flex: 2;
   cursor: pointer;
-`;
-
-export const ItemImage = styled.div`
-  width: 80px;
-  height: 80px;
 `;
 
 export const ItemDetails = styled.div`
@@ -67,6 +62,7 @@ export const AddItem = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
+  align-items: flex-start;
   .notAvail {
     font-weight: normal;
     font-size: 14px;
@@ -97,11 +93,77 @@ export const ItemsAction = styled.div`
   }
 `;
 
-export const AllUnits = styled.div`
-  cursor: pointer;
-  .anticon {
-    font-size: 12px;
-    color: ${palette.BUTTON_SEC_COLOR};
-    margin-left: 5px;
+export const CarouselContainer = styled.div`
+  position: relative;
+  border-radius: 16px;
+  max-width: 930px;
+  margin: 0 auto;
+  padding: 24px 24px 0px;
+  .ant-carousel .slick-list .slick-slide > div > div {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+  }
+  .slick-dots {
+    bottom: 16px !important;
+  }
+  .ant-carousel .slick-dots li {
+    width: 10px;
+    height: 8px;
+  }
+  .ant-carousel .slick-dots li button {
+    height: 8px;
+    border-radius: 100%;
+    width: 8px;
+    opacity: 0.4;
+    background: ${palette.WHITE_COLOR};
+    border: 1px solid ${palette.DOVE_GRAY};
+  }
+  .ant-carousel .slick-dots li.slick-active button {
+    background: ${palette.DOVE_GRAY};
+    opacity: 1;
+  }
+  .leftArrow, .rightArrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: ${palette.PRIMARY_TXT_COLOR};
+    z-index: 1;
+    cursor: pointer;
+  }
+  .leftArrow {
+    left: 24px;
+  }
+  .rightArrow {
+    right: 24px;
+  }
+  @media (max-width: 769px) {
+    .leftArrow, .rightArrow {
+      display: none;
+    }
+    .ant-carousel .slick-list .slick-slide > div > div {
+      padding: 0px 6px;
+    }
+    .slick-dots {
+      bottom: 12px !important;
+    }
+  }
+`;
+
+export const CarouselImage = styled.div`
+  overflow: hidden;
+  max-width: 320px;
+  margin: 0 auto;
+  @media (max-width: 769px) {
+    img {
+      width: auto;
+    }
   }
 `;

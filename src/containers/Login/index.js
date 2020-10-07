@@ -36,9 +36,7 @@ const LoginPage = props => {
 
   //otp
   const sendOtp = (token) => {
-    newOTP(token, res => {
-      console.log(res.data);
-    });
+    newOTP(token, res => {});
   };
 
   const { getDetails } = useContext(UserContext);

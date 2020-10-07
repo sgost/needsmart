@@ -31,6 +31,15 @@ const HomePage = () => {
 
   const slider = useRef(null);
 
+  const[showSlides, setShowSlides] = useState(2);
+  useEffect(() => {
+    if(typeof window !== undefined) {
+      if(window.innerWidth < 769) {
+        setShowSlides(1);
+      }
+    }
+  }, []);
+
   return (
     <Fragment>
       {
@@ -39,10 +48,13 @@ const HomePage = () => {
           {
             offers.length > 0 &&
             <CarouselContainer>
-              <span className="leftArrow" onClick={() => slider.current.prev()}>
-                <LeftOutlined />
-              </span>
-              <Carousel ref={slider}>
+              {
+                offers.length > 2 &&
+                <span className="leftArrow" onClick={() => slider.current.prev()}>
+                  <LeftOutlined />
+                </span>
+              }
+              <Carousel ref={slider} slidesToShow={offers.length > 1 && showSlides} slidesToScroll={offers.length > 1 && showSlides}>
                 {
                   offers && offers.map(offer =>
                     <div key={offer.id} style={{overflow: 'hidden'}}>
@@ -53,9 +65,12 @@ const HomePage = () => {
                   )
                 }
               </Carousel>
-              <span className="rightArrow" onClick={() => slider.current.next()}>
-                <RightOutlined />
-              </span>
+              {
+                offers.length > 2 &&
+                <span className="rightArrow" onClick={() => slider.current.next()}>
+                  <RightOutlined />
+                </span>
+              }
             </CarouselContainer>
           }
           <Row type="flex" className="subCatList">

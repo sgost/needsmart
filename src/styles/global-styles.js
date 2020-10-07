@@ -420,4 +420,16 @@ export const GlobalStyle = createGlobalStyle`
       display: flex;
     }
   }
+
+  .viewItemModal {
+    max-width: 450px !important;
+    .ant-modal-close {
+      color: ${palette.BLACK_COLOR};
+    }
+    @media only screen and (max-width: 769px) {
+      max-width: unset !important;
+      width: auto !important;
+      margin: 8px 24px !important;
+    }
+  }
 `;
