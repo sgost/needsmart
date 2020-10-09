@@ -15,7 +15,7 @@ const Order = props => {
   const order = props.data;
 
   return (
-    <OrderCard style={{boxShadow: props.currentId === order.id && '0px 0px 5.00275px #3C6BC7'}}>
+    <OrderCard style={{boxShadow: props.currentId === order.id && '0px 0px 5px #3C6BC7', border: props.currentId === order.id && 'none'}}>
       <CardTitle>
         <OrderId>Order ID: <span>{order.order_id}</span></OrderId>
         <StatusLabel status={order.status}>

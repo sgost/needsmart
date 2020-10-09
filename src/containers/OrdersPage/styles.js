@@ -23,7 +23,7 @@ export const Container = styled.div`
     }
   }
   .ordersListItem {
-    margin-bottom: 22px;
+    margin-bottom: 30px;
     cursor: pointer;
     @media only screen and (max-width: 769px) {
       margin-bottom: 0px;
