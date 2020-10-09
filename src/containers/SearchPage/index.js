@@ -3,13 +3,18 @@ import { Input } from 'antd';
 import { SearchOutlined, CloseOutlined } from '@ant-design/icons';
 import Item from '../../components/Item';
 import { searchItems } from "../../utils/services/outletsAPI";
+import EmptyState from "../../images/empty-search.png";
 import {
   Container,
   SearchInput,
-  SearchList
+  SearchList,
+  SearchImage
 } from './styles';
 
 const SearchPage = () => {
+
+  //show empty state
+  const[showImage, setShowImage] = useState(true);
 
   const[loading, setLoading] = useState(false);
 
@@ -44,6 +49,7 @@ const SearchPage = () => {
   };
 
   const focus = () => {
+    setShowImage(false);
     var elem = document.getElementById('mobMenu');
     if(elem !== null) {
       elem.className = "keypadOpen";
@@ -67,8 +73,8 @@ const SearchPage = () => {
           prefix={<SearchOutlined />}
           onFocus={focus}
           onBlur={blur}
+          suffix={<CloseOutlined onClick={clearQuery} />}
         />
-        <CloseOutlined onClick={clearQuery} />
       </SearchInput>
       {
         !loading &&
@@ -79,6 +85,12 @@ const SearchPage = () => {
             )
           }
         </SearchList>
+      }
+      {
+        showImage &&
+        <SearchImage>
+          <img src={EmptyState} alt="Search" />
+        </SearchImage>
       }
     </Container>
   );

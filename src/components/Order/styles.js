@@ -3,7 +3,7 @@ import * as palette from '../../styles/variables';
 
 export const OrderCard = styled.div`
   background: ${palette.WHITE_COLOR};
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.25);
+  border: 1px solid ${palette.BORDER_COLOR};
   border-radius: 10px;
   padding: 25px;
   &:hover {
@@ -12,7 +12,8 @@ export const OrderCard = styled.div`
   @media only screen and (max-width: 769px) {
     box-shadow: none;
     border-radius: unset;
-    padding: 15px 0px;
+    padding: 20px 0px;
+    border: none;
   }
 `;
 
@@ -101,7 +102,10 @@ export const DeliveryDetails = styled.div`
     font-size: 14px;
     line-height: 21px;
     color: ${palette.SILVER};
-    max-width: 275px;
+    max-width: 360px;
+    @media only screen and (min-width: 769px) and (max-width: 992px) {
+      max-width: 230px;
+    }
     @media only screen and (max-width: 769px) {
       max-width: 200px;
     }

@@ -37,8 +37,16 @@ export const getOutletItems = async (subCategoryId, success) => {
 };
 
 export const searchItems = async (query, success, error) => {
+
+  let url;
+  if(query.length) {
+    url = `${BASE_URL}/${OUTLETSURL}/${OUTLETID}/search?query=`+query;
+  } else {
+    url = `${BASE_URL}/${OUTLETSURL}/${OUTLETID}/search?query=''`;
+  }
+
   try {
-    const response = await request.get(`${BASE_URL}/${OUTLETSURL}/${OUTLETID}/search?query=`+query);
+    const response = await request.get(url);
     success(response);
   } catch (err) {
     logger(err);

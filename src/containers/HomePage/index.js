@@ -43,7 +43,7 @@ const HomePage = () => {
   return (
     <Fragment>
       {
-        !loading &&
+        subCategories !== null && !loading &&
         <Container>
           {
             offers.length > 0 &&
@@ -54,9 +54,9 @@ const HomePage = () => {
                   <LeftOutlined />
                 </span>
               }
-              <Carousel ref={slider} slidesToShow={offers.length > 1 && showSlides} slidesToScroll={offers.length > 1 && showSlides}>
+              <Carousel ref={slider} slidesToShow={offers.length > 1 ? showSlides : 1} slidesToScroll={offers.length > 1 ? showSlides : 1}>
                 {
-                  offers && offers.map(offer =>
+                  offers.map(offer =>
                     <div key={offer.id} style={{overflow: 'hidden'}}>
                       <Link to={`/${offer.sub_category.name}/${offer.sub_category.id}`} style={{overflow: 'hidden'}}>
                         <img src={offer.image_url} alt={offer.name} />
@@ -76,7 +76,7 @@ const HomePage = () => {
           <Row type="flex" className="subCatList">
             {
               subCategories && subCategories.sub_categories && subCategories.sub_categories.map(dataItem =>
-                <Col xs={8} sm={8} md={5} lg={4} xl={4} key={dataItem.id} className="subCatItems">
+                <Col xs={8} sm={5} md={5} lg={4} xl={4} key={dataItem.id} className="subCatItems">
                   <Link to={`/${dataItem.name}/${dataItem.id}`}>
                     <span className="itemImage">
                       <img src={dataItem.image_url} alt={dataItem.name} />

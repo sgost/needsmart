@@ -6,11 +6,13 @@ const CartSummaryContext = createContext({});
 const Context = ({ children }) => {
   const [cartSummary, setCartSummary] = useState({});
   useEffect(() => {
-    getCartSummary(
-      res => {
-        setCartSummary(res);
-      }
-    );
+    if(localStorage.getItem('api_token') !== null) {
+      getCartSummary(
+        res => {
+          setCartSummary(res);
+        }
+      );
+    }
   }, []);
 
   const getDetails = (data) => {

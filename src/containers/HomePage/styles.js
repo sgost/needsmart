@@ -7,6 +7,12 @@ export const Container = styled.div`
     max-width: 930px;
     margin: 0 auto;
     justify-content: center;
+    @media only screen and (max-width: 576px) {
+      justify-content: flex-start;
+    }
+    @media only screen and (max-width: 769px) and (min-width: 576px) {
+      max-width: 600px;
+    }
     @media only screen and (min-width: 1500px) {
       max-width: 1100px;
     }
@@ -32,23 +38,33 @@ export const Container = styled.div`
       line-height: 20px;
       color: ${palette.MD_GREY};
       text-align: center;
+      width: 138px;
+      height: 150px;
       .itemImage {
         margin-bottom: 8px;
+        width: 70px;
+        height: 70px;
       }
       &:hover {
         box-shadow: 0 1px 2px -2px rgba(0,0,0,.16), 0 3px 6px 0 rgba(0,0,0,.12), 0 5px 12px 4px rgba(0,0,0,.09);
       }
     }
   }
-  @media only screen and (max-width: 569px) {
+  @media only screen and (max-width: 769px) {
     padding: 30px 10px;
     .subCatItems {
-      padding: 6px;
+      padding: 8px;
       a {
         padding: 12px 10px;
         font-size: 14px;
         line-height: 16px;
         border-radius: 8px;
+        width: 110px !important;
+        height: 120px !important;
+        .itemImage {
+          width: 56px;
+          height: 56px;
+        }
       }
     }
   }

@@ -10,9 +10,11 @@ const Context = ({ children }) => {
   }, []);
 
   const getDetails = () => {
-    getUserDetails(res => {
-      setUser(res);
-    });
+    if(localStorage.getItem('api_token') !== null) {
+      getUserDetails(res => {
+        setUser(res);
+      });
+    }
   };
 
   return <UserContext.Provider value={{user, getDetails}}>{children}</UserContext.Provider>;

@@ -93,8 +93,8 @@ export const MenuItem = styled.li`
   .active {
     font-weight: 600;
     color: ${palette.BUTTON_PRIMARY_COLOR};
-    svg path {
-      fill: ${palette.BUTTON_PRIMARY_COLOR};
+    svg path, svg circle {
+      stroke: ${palette.BUTTON_PRIMARY_COLOR};
     }
     span {
       color: ${palette.BUTTON_PRIMARY_COLOR};
@@ -189,8 +189,8 @@ export const MobMenuList = styled.li`
   .active {
     font-weight: 600;
     color: ${palette.BUTTON_PRIMARY_COLOR} !important;
-    svg path {
-      fill: ${palette.BUTTON_PRIMARY_COLOR};
+    svg path, svg circle {
+      stroke: ${palette.BUTTON_PRIMARY_COLOR};
     }
   }
 `;

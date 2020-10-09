@@ -24,7 +24,7 @@ export const SearchInput = styled.div`
     color: ${palette.INPUT_TEXT} !important;
     box-shadow: none;
     background: ${palette.WHITE_SMOKE};
-    margin-right: 38px;
+    padding: 4px 20px;
   }
   .ant-input-prefix {
     color: ${palette.DARK_GRAY};
@@ -48,7 +48,7 @@ export const SearchInput = styled.div`
       height: 40px !important;
       font-size: 14px !important;
       line-height: 18px !important;
-      margin-right: 15px;
+      padding: 4px 10px;
     }
     .anticon-close {
       font-size: 16px;
@@ -59,8 +59,12 @@ export const SearchInput = styled.div`
 export const SearchList = styled.div`
   max-width: 600px;
   margin: 25px auto;
-  padding-right: 60px;
   @media only screen and (max-width: 769px) {
     padding: 0px 15px;
   }
+`;
+
+export const SearchImage = styled.div`
+  max-width: 260px;
+  margin: 0 auto;
 `;
