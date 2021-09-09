@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api-dev.needsmart.in';
+export const BASE_URL = 'https://api.needsmart.in/';
 export const BASE_USER = 'users';
 export const APIURL = 'api';
 
